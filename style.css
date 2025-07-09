@@ -43,3 +43,15 @@ section {
     border-radius: 50%;
     
 }
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('Wallpaper5.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    color: #333;
+}
+
