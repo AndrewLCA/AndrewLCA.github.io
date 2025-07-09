@@ -34,3 +34,12 @@ nav a {
 section {
     padding: 2rem;
 }
+.pfp
+{
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: 150px;   
+    height: auto;
+    border-radius: 50%;
+    
+}
