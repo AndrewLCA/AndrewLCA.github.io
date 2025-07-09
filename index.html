@@ -1,9 +1,36 @@
 <!DOCTYPE html>
+<html lang = "en"> <!-- -->
 <head>
-    <title>Andrew Lu</title>
+    <meta charset = "UTF-8">
+    <meta name ="viewport" content = "width=device-width, initial-scale = 1.0"> <!-- makes site responsive, scales well with mobile devices-->
+    <title>Andrew Lu</title> <!-- what my site is called in tab-->
+    <link rel="stylesheet" hfre="style.css"> <!-- links to my CSS file-->
 </head>
-<body>
-    <p>Hello, my name is Andrew Lu. I am a senior at University of California, San Diego studying mathematics and computer science.</p>
-    <p>My hobbies include tennis, reading, coding, and playing video games.</p>
+<body> <!-- visible content goes here -->
+    <header> <!-- contains name and nav bar -->
+        <h1>Andrew Lu</h1>
+        <nav> <!-- navigation bar with 3 links-->
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href = "#contact">Contact</a>
+        </nav>
+    </header>
+    <section id="about"> <!-- id = about lets nav link to scroll here -->
+        <h2>About Me</h2>
+        <p>Senior Mathematics and Computer Science major at UC San Diego 
+            with a strong academic and research background in algorithm analysis, 
+            focusing on computational efficiency, execution time, and memory optimization.
+            Experienced in performance-driven software development using C++, Python, and 
+            GPU-accelerated computing (CUDA, OpenCL). Passionate about applying mathematical 
+            principles to build scalable, high-performance systems and contribute to impactful 
+            engineering projects.</p>
+    </section>
+    <section id = "research">
+        <h2>Research @ ESCAL</h2>
+    </section>>
+    <section id ="Contact">
+        <h2>Contact</h2>
+        <p> Email me at: <a href="mailto:andrewlu3002@gmail.com">andrewlu3002@gmail.com</a>
+    </section>
 </body>
 </html>
