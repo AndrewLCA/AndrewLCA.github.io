@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research – Andrew Lu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research – Andrew Lu</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header> <!-- contains name and nav bar -->
-        <div class = "navbar">
-        <div class = "name">Andrew Lu </div>
-        <nav> <!-- navigation bar with 3 links-->
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href = "contact.html">Contact</a>
-        </nav>
-        </div>
-    </header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <section>
-        <h2>Researcher at <a href="https://www.escalab.org/">ESCAL</h2>
-    </section>
+    <div id="sidebar" class="sidebar">
+      <a href="index.html">🏠 Home</a>
+      <a href="aboutme.html">🙋‍♂️ About Me</a>
+      <a href="research.html">🧪 Research</a>
+      <a href="contact.html">✉️ Contact</a>
+    </div>
+    
+
+  <section class="content-wrapper">
+    <div class="text-only">
+      <h2>Research</h2>
+      <p>
+        I am currently an undergraduate researcher at <a href="https://www.escalab.org/" target="_blank">ESCAL</a>, where I work on optimizing sparse × sparse matrix multiplication for high-performance computing.
+        My focus is on designing efficient data structures and tiling strategies to accelerate operations on matrices with local density while maintaining low memory overhead.
+      </p>
+    </div>
+  </section>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+        sidebar.classList.remove("open");
+      }
+    });
+  </script>
+  
+  
 </body>
 </html>

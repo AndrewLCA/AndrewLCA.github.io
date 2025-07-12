@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact – Andrew Lu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Andrew Lu</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header> <!-- contains name and nav bar -->
-        <div class = "navbar">
-        <div class = "name">Andrew Lu </div>
-        <nav> <!-- navigation bar with 3 links-->
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href = "contact.html">Contact</a>
-        </nav>
-        </div>
-    </header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <section>
-        <h2>Contact Information</h2>
-        <p>Email me at: <a href="mailto:andrewlu3002@gmail.com">andrewlu3002@gmail.com</a></p>
-    </section>
+    <div id="sidebar" class="sidebar">
+      <a href="index.html">🏠 Home</a>
+      <a href="aboutme.html">🙋‍♂️ About Me</a>
+      <a href="research.html">🧪 Research</a>
+      <a href="contact.html">✉️ Contact</a>
+    </div>
+    
+
+  <section class="content-wrapper">
+    <div class="text-only">
+      <h2>Contact Me</h2>
+      <p>
+        Feel free to reach out to me via <a href="mailto:andrewlu3002@gmail.com">email:<br>
+      </p>
+    </div>
+  </section>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+        sidebar.classList.remove("open");
+      }
+    });
+  </script>
+  
+  
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me – Andrew Lu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div id="sidebar" class="sidebar">
+      <a href="index.html">🏠 Home</a>
+      <a href="aboutme.html">🙋‍♂️ About Me</a>
+      <a href="research.html">🧪 Research</a>
+      <a href="contact.html">✉️ Contact</a>
+    </div>
+    
+
+  <section class="about-wrapper">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a senior at the University of California, San Diego, studying Mathematics and Computer Science.
+        I enjoy reading, playing tennis, and playing video games in my free time. Currently, I work as an undergraduate
+        researcher and a Computer Science tutor. My research focuses on optimizing sparse matrix computations for high-performance
+        applications. I’m actively seeking new graduate software engineering roles.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="IMG_0439.jpeg" alt="Andrew Lu" />
+    </div>
+  </section>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+        sidebar.classList.remove("open");
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>
