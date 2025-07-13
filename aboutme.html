@@ -7,20 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <img src="me.png" alt="Waving Andrew Lu" class="corner-wave" />
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div id="sidebar" class="sidebar">
+    <a href="index.html">🏠 Home</a>
+    <a href="aboutme.html">🙋‍♂️ About Me</a>
+    <a href="career.html">💼 Career</a>
+    <a href="research.html">🧪 Research</a>
+    <a href="contact.html">✉️ Contact</a>
+  </div>
 
-    <div id="sidebar" class="sidebar">
-      <a href="index.html">🏠 Home</a>
-      <a href="aboutme.html">🙋‍♂️ About Me</a>
-      <a href="research.html">🧪 Research</a>
-      <a href="contact.html">✉️ Contact</a>
-      <a href = "career.html"> 💼 Career</a>
-    </div>
-
+  <section class="about-wrapper">
     <div class="about-text">
-      <h2>About Me</h2>
+      <div class="about-heading">
+        <h2>About Me</h2>
+        <img src="me.png" alt="Waving Andrew Lu" class="wave-inline" />
+      </div>
       <p>
         I’m a senior at the University of California, San Diego, studying Mathematics and Computer Science.
         I enjoy reading, playing tennis, and watching anime in my free time. Currently, I work as an undergraduate
@@ -32,10 +34,12 @@
       <img src="IMG_0439.jpeg" alt="Andrew Lu" />
     </div>
   </section>
+
   <script>
     function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("open");
     }
+
     document.addEventListener("click", function(event) {
       const sidebar = document.getElementById("sidebar");
       const toggle = document.querySelector(".menu-toggle");
@@ -44,7 +48,5 @@
       }
     });
   </script>
-  
-  
 </body>
 </html>

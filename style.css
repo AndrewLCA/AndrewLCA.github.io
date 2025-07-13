@@ -1,4 +1,14 @@
-.homepage {
+/* General Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #000;
+    color: #ccc;
+  }
+  
+  /* Homepage Background */
+  .homepage {
     background-image: url("Wallpaper3.jpg");
     background-size: cover;
     background-position: center;
@@ -6,25 +16,18 @@
     background-attachment: fixed;
     color: #fff; 
   }
-
-body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #111;
-    color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.grid {
+  
+  /* Grid Layout for Homepage Cards */
+  .grid {
     display: flex;
     gap: 2rem;
     padding: 2rem;
-}
-
-.card {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
     background-color: #1e1e1e;
     border-radius: 12px;
     text-align: center;
@@ -33,28 +36,22 @@ body {
     color: #ccc;
     transition: transform 0.2s, box-shadow 0.2s;
     width: 200px;
-}
-
-.card:hover {
+  }
+  
+  .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-}
-
-.card img {
+  }
+  
+  .card img {
     width: 100px;
     height: auto;
     margin-bottom: 1rem;
     background: #8a2be2;
     border-radius: 8px;
-}
-body {
-    background-color: #111;
-    color: #ccc;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
   }
   
+  /* About Page Layout */
   .about-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -66,11 +63,24 @@ body {
     gap: 2rem;
     overflow: visible;
   }
-
+  
   .about-text {
     flex: 1 1 55%;
     min-width: 280px;
     text-align: left;
+  }
+  
+  .about-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .wave-inline {
+    width: 40px;
+    height: auto;
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: bottom center;
   }
   
   .about-text h2 {
@@ -84,10 +94,12 @@ body {
     font-size: 1.05rem;
     line-height: 1.6;
   }
+  
   .about-image {
     flex: 1 1 35%;
     text-align: center;
   }
+  
   .about-image img {
     width: 100%;
     max-width: 250px;
@@ -95,14 +107,8 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
   }
-  body {
-    background-color: #000;
-    color: #f0f0f0;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
   
+  /* Text-Only Sections */
   .content-wrapper {
     display: flex;
     justify-content: center;
@@ -136,6 +142,8 @@ body {
   .text-only a:hover {
     text-decoration: underline;
   }
+  
+  /* Menu Sidebar */
   .menu-toggle {
     position: fixed;
     top: 1rem;
@@ -177,6 +185,8 @@ body {
   .sidebar a:hover {
     text-decoration: underline;
   }
+  
+  /* Career Section */
   .career-container {
     text-align: center;
     max-width: 1000px;
@@ -198,7 +208,7 @@ body {
   .course-list {
     flex: 1;
     min-width: 300px;
-  }  
+  }
   
   .course-list h3 {
     color: #a259ff;
@@ -210,15 +220,25 @@ body {
     padding-left: 1.5rem;
     color: #ccc;
   }
-  .corner-wave {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    width: 100px;
-    z-index: 1000;
-    animation: wave 2s ease-in-out infinite;
-    transform-origin: bottom center;
+  
+  /* Resume Section */
+  .resume-section {
+    margin-bottom: 2rem;
+    text-align: center;
   }
+  
+  .resume-link {
+    color: #a259ff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  
+  .resume-link:hover {
+    text-decoration: underline;
+  }
+  
   @keyframes wave {
     0% { transform: rotate(0deg); }
     15% { transform: rotate(14deg); }
@@ -228,14 +248,31 @@ body {
     75% { transform: rotate(10deg); }
     100% { transform: rotate(0deg); }
   }
-    
-  .wave-animation {
-    display: inline-block;
-    transform-origin: bottom center; 
-    animation: wave 2s ease-in-out infinite;
+  
+  /* Responsive Fixes */
+  @media (max-width: 768px) {
+    .course-lists {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .course-list {
+      width: 100%;
+      text-align: left;
+    }
+  
+    .about-wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-text, .about-image {
+      flex: unset;
+      width: 100%;
+    }
+  
+    .wave-inline {
+      width: 30px;
+    }
   }
-  
-  
-  
-  
   
