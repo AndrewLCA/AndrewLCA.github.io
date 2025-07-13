@@ -64,10 +64,11 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     gap: 2rem;
+    overflow: visible;
   }
 
   .about-text {
-    flex: 1;
+    flex: 1 1 55%;
     min-width: 280px;
     text-align: left;
   }
@@ -83,10 +84,14 @@ body {
     font-size: 1.05rem;
     line-height: 1.6;
   }
+  .about-image {
+    flex: 1 1 35%;
+    text-align: center;
+  }
   .about-image img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
   }
@@ -135,7 +140,7 @@ body {
     position: fixed;
     top: 1rem;
     right: 1rem;
-    font-size: 1.5rem;
+    font-size: 50px;
     color: #a259ff;
     cursor: pointer;
     z-index: 1001;
@@ -172,6 +177,65 @@ body {
   .sidebar a:hover {
     text-decoration: underline;
   }
+  .career-container {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .course-lists {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .course-list {
+    flex: 1;
+    min-width: 300px;
+  }  
+  
+  .course-list h3 {
+    color: #a259ff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .course-list ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #ccc;
+  }
+  .corner-wave {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: 100px;
+    z-index: 1000;
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(14deg); }
+    30% { transform: rotate(-8deg); }
+    45% { transform: rotate(14deg); }
+    60% { transform: rotate(-4deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+  }
+    
+  .wave-animation {
+    display: inline-block;
+    transform-origin: bottom center; 
+    animation: wave 2s ease-in-out infinite;
+  }
+  
+  
   
   
   
