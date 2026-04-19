@@ -7,14 +7,63 @@ body {
   font-family: Arial, sans-serif;
 }
 
-body.show-background {
+/*body.show-background {
   background-image:
     url("kiritsugu-backgroundV1.png"),
     linear-gradient(to right, #eef2f7, #040405);
-  /*background-size: cover, cover;*/
   background-size: 85% auto, cover;
   background-position: right 40%, center;
   background-repeat: no-repeat, no-repeat;
+}*/
+.fate {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+.fate img {
+  height: 110vh;
+  width: auto;
+  transform: translateX(30%) translateY(10%);
+}
+
+.blossom-branch,
+.fate {
+  visibility: hidden;
+  opacity: 0;
+}
+
+body.show-background .blossom-branch {
+  visibility: visible;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+body.show-background .fate {
+  visibility: visible;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+body.show-background {
+  background-image: linear-gradient(to right, #eef2f7, #040405);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 body.show-background::after {
@@ -29,6 +78,8 @@ body.show-background::after {
     transparent 40%
   );
 }
+
+
 
 #loader {
   position: fixed;
@@ -222,9 +273,7 @@ body.show-background::after {
   transition: opacity 1s ease;*/
 }
 
-body.show-background .blossom-branch {
-  opacity: 1;
-}
+
 
 .blossom-branch img {
   width: 999px;
@@ -603,6 +652,7 @@ body.show-background .blossom-branch {
   gap: 60px;
   width: 100%;
 }
+
 
 .side-images {
   display: flex;

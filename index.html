@@ -28,7 +28,6 @@
         <circle class="inner-seg s16" cx="100" cy="100" r="75"></circle>
       </svg>
 
-      <!-- OUTER RING -->
       <svg class="outer-ring" viewBox="0 0 200 200">
         <circle class="seg seg1" cx="100" cy="100" r="78"></circle>
         <circle class="seg seg2" cx="100" cy="100" r="78"></circle>
@@ -98,7 +97,7 @@
     loader.style.display = "none";
     pageContent.classList.add("show");
     document.body.classList.add("show-background");
-    startPetals();
+    setTimeout(startPetals, 1200);
   }
 
   function runLoader() {
@@ -112,7 +111,7 @@
         loader.classList.add("hidden");
         pageContent.classList.add("show");
         document.body.classList.add("show-background");
-        startPetals();
+        setTimeout(startPetals, 1200);
       }, 800);
     }, 3000);
   }
@@ -146,5 +145,8 @@
 
 <div id="petal-container"></div>
 
+<div class="fate">
+  <img src="kiritsugu-backgroundV1.png" alt="" />
+</div>
 </body>
 </html>
