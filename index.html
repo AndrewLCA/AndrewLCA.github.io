@@ -50,6 +50,47 @@
   </div>
 
  <script>
+  let petalInterval = null;
+
+  function createPetal() {
+    const container = document.getElementById("petal-container");
+    if (!container) return;
+
+    const petal = document.createElement("div");
+    petal.className = "petal";
+
+    const startX = Math.random() * window.innerWidth * 0.8;
+    const duration = 8 + Math.random() * 5;
+    const drift = -50 + Math.random() * 100;
+
+    petal.style.left = `${startX}px`;
+    petal.style.animationDuration = `${duration}s`;
+    petal.style.setProperty("--drift", `${drift}px`);
+
+    container.appendChild(petal);
+
+    setTimeout(() => {
+      petal.remove();
+    }, duration * 1000);
+  }
+
+  function startPetals() {
+    stopPetals();
+
+    for (let i = 0; i < 10; i++) {
+      setTimeout(createPetal, i * 300);
+    }
+
+    petalInterval = setInterval(createPetal, 500);
+  }
+
+  function stopPetals() {
+    if (petalInterval) {
+      clearInterval(petalInterval);
+      petalInterval = null;
+    }
+  }
+
   function showPageInstantly() {
     const loader = document.getElementById("loader");
     const pageContent = document.getElementById("pageContent");
@@ -57,6 +98,7 @@
     loader.style.display = "none";
     pageContent.classList.add("show");
     document.body.classList.add("show-background");
+    startPetals();
   }
 
   function runLoader() {
@@ -70,6 +112,7 @@
         loader.classList.add("hidden");
         pageContent.classList.add("show");
         document.body.classList.add("show-background");
+        startPetals();
       }, 800);
     }, 3000);
   }
@@ -79,18 +122,29 @@
 
     if (cameFromInternalNav) {
       sessionStorage.removeItem("skipHomeLoader");
-      showPageInstantly();
+      showPageInstantly();  
     } else {
-      runLoader();
+      runLoader();         
     }
 
-    document.querySelectorAll('#pageContent a').forEach(link => {
-      link.addEventListener('click', () => {
+    document.querySelectorAll("#pageContent a").forEach(link => {
+      link.addEventListener("click", () => {
         sessionStorage.setItem("skipHomeLoader", "true");
+        stopPetals();
       });
     });
   });
+
+  window.addEventListener("pagehide", () => {
+    stopPetals();
+  });
 </script>
+
+<div class="blossom-branch">
+  <img src="cherry-branch.png" alt="" />
+</div>
+
+<div id="petal-container"></div>
 
 </body>
 </html>
