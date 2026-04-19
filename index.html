@@ -5,129 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Lu</title>
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* Hide page at first */
-    body.homepage {
-      margin: 0;
-      overflow: hidden;
-    }
-
-    /* Loader overlay */
-    #loader {
-      position: fixed;
-      inset: 0;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-
-    #loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    /* Loader circle */
-    .spinner {
-      width: 80px;
-      height: 80px;
-      animation: rotate 2s linear infinite;
-    }
-
-    .spinner circle {
-      fill: none;
-      stroke: black;
-      stroke-width: 6;
-      stroke-linecap: round;
-      stroke-dasharray: 180;
-      stroke-dashoffset: 140;
-      animation: dash 1.5s ease-in-out infinite;
-    }
-
-    @keyframes rotate {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes dash {
-      0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
-      }
-      50% {
-        stroke-dasharray: 100, 200;
-        stroke-dashoffset: -35;
-      }
-      100% {
-        stroke-dasharray: 100, 200;
-        stroke-dashoffset: -125;
-      }
-    }
-
-    /* Main content hidden initially */
-    .page-content {
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    .page-content.show {
-      opacity: 1;
-    }
-  </style>
 </head>
-<body class="homepage">
-  <!-- Loader -->
+<body>
   <div id="loader">
-    <svg class="spinner" viewBox="0 0 50 50">
-      <circle cx="25" cy="25" r="20"></circle>
-    </svg>
-  </div>
+    <div class="loader-wrap">
+      <svg class="inner-ring" viewBox="0 0 200 200">
+        <circle class="inner-seg s1" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s2" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s3" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s4" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s5" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s6" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s7" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s8" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s9" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s10" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s11" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s12" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s13" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s14" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s15" cx="100" cy="100" r="75"></circle>
+        <circle class="inner-seg s16" cx="100" cy="100" r="75"></circle>
+      </svg>
 
-  <!-- Main content -->
-  <div class="page-content" id="pageContent">
-    <div class="grid">
-      <a href="aboutme.html" class="card">
-        <img src="aboutme.png" alt="About" />
-        <h3>About Me</h3>
-        <p>Learn more about me.</p>
-      </a>
+      <!-- OUTER RING -->
+      <svg class="outer-ring" viewBox="0 0 200 200">
+        <circle class="seg seg1" cx="100" cy="100" r="78"></circle>
+        <circle class="seg seg2" cx="100" cy="100" r="78"></circle>
+        <circle class="seg seg3" cx="100" cy="100" r="78"></circle>
+        <circle class="seg seg4" cx="100" cy="100" r="78"></circle>
+        <circle class="seg seg5" cx="100" cy="100" r="78"></circle>
+      </svg>
 
-      <a href="career.html" class="card">
-        <img src="career.png" alt="Career" />
-        <h3>Career Summary</h3>
-        <p>See my experience.</p>
-      </a>
-
-      <a href="research.html" class="card">
-        <img src="research.png" alt="Research" />
-        <h3>Research</h3>
-        <p>Explore my work.</p>
-      </a>
-
-      <a href="contact.html" class="card">
-        <img src="contact.png" alt="Contact" />
-        <h3>Contact</h3>
-        <p>Get in touch.</p>
-      </a>
     </div>
   </div>
 
-  <script>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      const pageContent = document.getElementById("pageContent");
+  <div id="pageContent">
+    <div class="menu">
+      <a href="aboutme.html" class="btn">About Me</a>
+      <a href="career.html" class="btn">Career</a>
+      <a href="research.html" class="btn">Research</a>
+      <a href="contact.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+ <script>
+  function showPageInstantly() {
+    const loader = document.getElementById("loader");
+    const pageContent = document.getElementById("pageContent");
+
+    loader.style.display = "none";
+    pageContent.classList.add("show");
+    document.body.classList.add("show-background");
+  }
+
+  function runLoader() {
+    const loader = document.getElementById("loader");
+    const pageContent = document.getElementById("pageContent");
+
+    setTimeout(() => {
+      loader.classList.add("finish");
 
       setTimeout(() => {
         loader.classList.add("hidden");
         pageContent.classList.add("show");
-        document.body.style.overflow = "auto";
-      }, 1500); // loader shows for 1.5 seconds
+        document.body.classList.add("show-background");
+      }, 800);
+    }, 3000);
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const cameFromInternalNav = sessionStorage.getItem("skipHomeLoader") === "true";
+
+    if (cameFromInternalNav) {
+      sessionStorage.removeItem("skipHomeLoader");
+      showPageInstantly();
+    } else {
+      runLoader();
+    }
+
+    document.querySelectorAll('#pageContent a').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem("skipHomeLoader", "true");
+      });
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>

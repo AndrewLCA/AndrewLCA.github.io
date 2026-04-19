@@ -1,278 +1,307 @@
-/* General Body Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #000;
-    color: #ccc;
+  margin: 0;
+  background: #000;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: Arial, sans-serif;
+}
+
+body.show-background {
+  background-image:
+    url("kiritsugu-backgroundV1.png"),
+    linear-gradient(to right, #eef2f7, #040405);
+  background-size: cover, cover;
+  background-position: right 40%, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+body.show-background::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 80% 50%,
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-wrap {
+  position: relative;
+  width: 420px;
+  height: 420px;
+}
+
+.inner-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+}
+
+.inner-seg {
+  fill: none;
+  stroke: #00fff7;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 3 468;
+  stroke-dashoffset: 471;
+  opacity: 0;
+  transform-origin: 100px 100px;
+  animation: drawInner 0.18s ease forwards;
+}
+
+.s1  { transform: rotate(-90deg); animation-delay: 0s; }
+.s2  { transform: rotate(-67.5deg); animation-delay: 0.08s; }
+.s3  { transform: rotate(-45deg); animation-delay: 0.16s; }
+.s4  { transform: rotate(-22.5deg); animation-delay: 0.24s; }
+.s5  { transform: rotate(0deg); animation-delay: 0.32s; }
+.s6  { transform: rotate(22.5deg); animation-delay: 0.40s; }
+.s7  { transform: rotate(45deg); animation-delay: 0.48s; }
+.s8  { transform: rotate(67.5deg); animation-delay: 0.56s; }
+.s9  { transform: rotate(90deg); animation-delay: 0.64s; }
+.s10 { transform: rotate(112.5deg); animation-delay: 0.72s; }
+.s11 { transform: rotate(135deg); animation-delay: 0.80s; }
+.s12 { transform: rotate(157.5deg); animation-delay: 0.88s; }
+.s13 { transform: rotate(180deg); animation-delay: 0.96s; }
+.s14 { transform: rotate(202.5deg); animation-delay: 1.04s; }
+.s15 { transform: rotate(225deg); animation-delay: 1.12s; }
+.s16 { transform: rotate(247.5deg); animation-delay: 1.20s; }
+
+@keyframes drawInner {
+  to {
+    stroke-dashoffset: 468;
+    opacity: 1;
   }
-  
-  /* Homepage Background */
-  .homepage {
-    background-image: url("Wallpaper3.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff; 
+}
+
+.outer-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 360px;
+  transform: translate(-50%, -50%);
+}
+
+.seg {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 100 420;
+  stroke-dashoffset: 520;
+  opacity: 0;
+  transform-origin: 100px 100px;
+  animation: drawSeg 0.45s ease forwards;
+}
+
+.seg1 { stroke: #a78bfa; transform: rotate(-90deg); animation-delay: 1.4s; }
+.seg2 { stroke: #8b5cf6; transform: rotate(-18deg); animation-delay: 1.75s; }
+.seg3 { stroke: #c084fc; transform: rotate(54deg); animation-delay: 2.1s; }
+.seg4 { stroke: #a855f7; transform: rotate(126deg); animation-delay: 2.45s; }
+.seg5 { stroke: #9333ea; transform: rotate(198deg); animation-delay: 2.8s; }
+
+@keyframes drawSeg {
+  to {
+    stroke-dashoffset: 420;
+    opacity: 1;
   }
-  
-  /* Grid Layout for Homepage Cards */
-  .grid {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+}
+
+#loader.finish .outer-ring {
+  animation: finalSpin 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes finalSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  
-  .card {
-    background-color: #1e1e1e;
-    border-radius: 12px;
+  to {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+
+#pageContent {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#pageContent.show {
+  opacity: 1;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.btn {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #111;
+  padding: 0.6rem 1.2rem;
+  border-left: 3px solid transparent;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  color: #000;
+  border-left: 3px solid #8b5cf6;
+  transform: translateX(10px);
+}
+
+#pageContent.show .btn:nth-child(1) {
+  animation: fadeSlideIn 0.5s ease forwards;
+  animation-delay: 0.2s;
+}
+
+#pageContent.show .btn:nth-child(2) {
+  animation: fadeSlideIn 0.5s ease forwards;
+  animation-delay: 0.4s;
+}
+
+#pageContent.show .btn:nth-child(3) {
+  animation: fadeSlideIn 0.5s ease forwards;
+  animation-delay: 0.6s;
+}
+
+#pageContent.show .btn:nth-child(4) {
+  animation: fadeSlideIn 0.5s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subpage {
+  background: linear-gradient(to right, #eef2f7, #040405);
+  color: #111;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #8b5cf6;
+  font-weight: 500;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.about-text {
+  flex: 1 1 60%;
+  min-width: 300px;
+}
+
+.about-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  line-height: 1.7;
+  color: #222;
+}
+
+.about-image {
+  flex: 0 0 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column-reverse;
     text-align: center;
-    padding: 1rem;
-    text-decoration: none;
-    color: #ccc;
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 200px;
+    padding: 50px 20px;
   }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-  }
-  
-  .card img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 1rem;
-    background: #8a2be2;
-    border-radius: 8px;
-  }
-  
-  /* About Page Layout */
-  .about-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 2rem;
-    overflow: visible;
-  }
-  
+
   .about-text {
-    flex: 1 1 55%;
-    min-width: 280px;
-    text-align: left;
+    flex: unset;
+    min-width: unset;
   }
-  
-  .about-heading {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .wave-inline {
-    width: 40px;
-    height: auto;
-    animation: wave 2s ease-in-out infinite;
-    transform-origin: bottom center;
-  }
-  
-  .about-text h2 {
-    color: #8a2be2;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .about-text p {
-    color: #ccc;
-    font-size: 1.05rem;
-    line-height: 1.6;
-  }
-  
+
   .about-image {
-    flex: 1 1 35%;
-    text-align: center;
+    flex: unset;
   }
-  
+
   .about-image img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+    width: 220px;
+    height: 220px;
   }
-  
-  /* Text-Only Sections */
-  .content-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .text-only {
-    max-width: 600px;
-  }
-  
-  .text-only h2 {
-    color: #a259ff;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .text-only p {
-    color: #e0e0e0;
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-  
-  .text-only a {
-    color: #a259ff;
-    text-decoration: none;
-  }
-  
-  .text-only a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Menu Sidebar */
-  .menu-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    font-size: 50px;
-    color: #a259ff;
-    cursor: pointer;
-    z-index: 1001;
-    user-select: none;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -200px;
-    width: 200px;
-    height: 100%;
-    background-color: #1a1a1a;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.5);
-    padding-top: 3rem;
-    transition: right 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-left: 1.5rem;
-  }
-  
-  .sidebar.open {
-    right: 0;
-  }
-  
-  .sidebar a {
-    color: #a259ff;
-    text-decoration: none;
-    font-size: 1.1rem;
-  }
-  
-  .sidebar a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Career Section */
-  .career-container {
-    text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .course-lists {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 4rem;
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .course-list {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .course-list h3 {
-    color: #a259ff;
-    margin-bottom: 0.5rem;
-  }
-  
-  .course-list ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    color: #ccc;
-  }
-  
-  /* Resume Section */
-  .resume-section {
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .resume-link {
-    color: #a259ff;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: inline-block;
-    margin-bottom: 1rem;
-  }
-  
-  .resume-link:hover {
-    text-decoration: underline;
-  }
-  
-  @keyframes wave {
-    0% { transform: rotate(0deg); }
-    15% { transform: rotate(14deg); }
-    30% { transform: rotate(-8deg); }
-    45% { transform: rotate(14deg); }
-    60% { transform: rotate(-4deg); }
-    75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
-  }
-  
-  /* Responsive Fixes */
-  @media (max-width: 768px) {
-    .course-lists {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .course-list {
-      width: 100%;
-      text-align: left;
-    }
-  
-    .about-wrapper {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .about-text, .about-image {
-      flex: unset;
-      width: 100%;
-    }
-  
-    .wave-inline {
-      width: 30px;
-    }
-  }
-  
+}

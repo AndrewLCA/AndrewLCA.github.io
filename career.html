@@ -3,79 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research – Andrew Lu</title>
+  <title>About Me</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<body class="subpage">
 
-    <div id="sidebar" class="sidebar">
-      <a href="index.html">🏠 Home</a>
-      <a href="aboutme.html">🙋‍♂️ About Me</a>
-      <a href = "career.html"> 💼 Career</a>
-      <a href="research.html">🧪 Research</a>
-      <a href="contact.html">✉️ Contact</a>
-      
-    </div>
-    
+  <div class="content">
+    <h1>Career</h1>
+    <p>This is where your about section goes.</p>
 
-    <section class="content-wrapper">
-        <div class="career-container">
-            <div class="resume-section">
-                <a href="Andrew_Lu_Resume (6).pdf" download class="resume-link"> <h2>Resume</h2></a>
-        
-              
-          <h2>Courses taken at UCSD</h2>
-          <div class="course-lists">
-            <div class="course-list">
-              <h3>Computer Science</h3>
-              <ul>
-                <li>CSE 100 – Advanced Data Structures</li>
-                <li>CSE 101 – Design and Analysis of Algorithms</li>
-                <li>CSE 105 – Theory of Computability</li>
-                <li>CSE 110 – Software Engineering</li>
-                <li>CSE 120 – Operating Systems</li>
-                <li>CSE 132A – Database Systems</li>
-                <li>CSE 140 – Components and Design Techniques for Digital Systems</li>
-                <li>CSE 142/L – Computer Architecture: Software Perspective</li>
-                <li>CSE 150A – Introduction to Artificial Intelligence: Probabilistic Reasoning</li>
-                <li>CSE 151A – Machine Learning: Learning Algorithms</li>
-                <li>CSE 153 – Machine Learning for Music</li>
-                <li>CSE 158 – Recommender Systems and Web Mining</li>
-                <li>CSE 160 – Parallel Computing</li>
-                <li>CSE 190 – Topics in Computer Science</li>
-                <li>CSE 202 – Design and Analysis of Algorithms (Graduate Version)</li>
-              </ul>
-            </div>
-            <div class="course-list">
-              <h3>Mathematics</h3>
-              <ul>
-                <li>MATH 100A – Abstract Algebra I</li>
-                <li>MATH 100B – Abstract Algebra II</li>
-                <li>MATH 170A – Numerical Analysis: Linear Algebra</li>
-                <li>MATH 180A – Probability</li>
-                <li>MATH 184 – Enumerative Combinatorics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    </div>
-      </section>
-      
-  <script>
-    function toggleMenu() {
-      document.getElementById("sidebar").classList.toggle("open");
-    }
-  
-    document.addEventListener("click", function(event) {
-      const sidebar = document.getElementById("sidebar");
-      const toggle = document.querySelector(".menu-toggle");
-      if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
-        sidebar.classList.remove("open");
-      }
-    });
-  </script>
-  
-  
+    <a href="index.html" class="back">← Back</a>
+  </div>
+
 </body>
 </html>
