@@ -40,9 +40,10 @@ body.show-background::after {
 }
 
 .fate img {
-  height: 110vh;
-  width: auto;
-  transform: translateX(30%) translateY(10%);
+  width: clamp(900px, 75vw, 1600px); 
+  height: auto;
+  display: block;
+  transform: translateX(20%) translateY(4%);
 }
 
 body.show-background .fate {
@@ -203,6 +204,7 @@ body.show-background .blossom-branch {
   display: flex;
   align-items: center;
   padding-left: clamp(20px, 8vw, 120px);
+  padding-right: 20px;
   opacity: 0;
   transition: opacity 0.8s ease;
 }
@@ -356,15 +358,12 @@ body.show-background .blossom-branch {
   }
 
   .blossom-branch img {
-    width: clamp(220px, 50vw, 420px);
-    transform: translate(-6%, -6%);
-  }
+  width: clamp(260px, 42vw, 760px);
+  height: auto;
+  display: block;
+  transform: translate(-4%, -6%);
+}
 
-  .fate img {
-    width: clamp(260px, 48vw, 420px);
-    transform: translateX(-10%) translateY(3%);
-    opacity: 0.9;
-  }
 }
 
 @media (max-width: 600px) {
@@ -377,9 +376,7 @@ body.show-background .blossom-branch {
     width: 58vw;
   }
 
-  .fate img {
-    width: 56vw;
-  }
+ 
 
   .btn {
     font-size: 1rem;
@@ -389,31 +386,13 @@ body.show-background .blossom-branch {
 
 
 
-.subpage {
-  color: #111;
-  min-height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 
-.content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 80px 20px;
-}
 
 .content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.back {
-  display: inline-block;
-  margin-top: 2rem;
-  text-decoration: none;
-  color: #8b5cf6;
-  font-weight: 500;
-}
 
 .back:hover {
   text-decoration: underline;
@@ -436,7 +415,7 @@ body.show-background .blossom-branch {
 }
 
 .pokemon-card {
-  width: 100%;
+  width: min(92vw, 430px);
   max-width: 430px;
   background:
     linear-gradient(160deg, rgba(255,255,255,0.95), rgba(245,238,220,0.95)),
@@ -725,10 +704,12 @@ body.show-background .blossom-branch {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(20px, 5vw, 60px);
+  gap: clamp(16px, 4vw, 60px);
   width: 100%;
-  padding: 40px 20px;
-  flex-wrap: wrap; 
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 40px);
+  flex-wrap: nowrap;
 }
 
 .side-images {
@@ -750,19 +731,20 @@ body.show-background .blossom-branch {
 }
 
 .side-img {
-  width: clamp(220px, 28vw, 500px);
+  width: clamp(180px, 24vw, 420px);
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 
 .greninja {
-  transform: translateX(-10%) translateY(12%);
+  transform: translate(-6%, 10%);
   opacity: 0.9;
 }
 
 .pikachu {
-  transform: translateX(-10%) translateY(-18%);
+  transform: translate(-6%, -14%);
   opacity: 1;
 }
 
@@ -788,22 +770,22 @@ body.show-background .blossom-branch {
 @keyframes greninjaFadeIn {
   from {
     opacity: 0;
-    transform: translateX(-90px) translateY(200px);
+    transform: translate(-16%, 10%);
   }
   to {
     opacity: 0.9;
-    transform: translateX(-20px) translateY(200px);
+    transform: translate(-6%, 10%);
   }
 }
 
 @keyframes pikachuFadeIn {
   from {
     opacity: 0;
-    transform: translateX(50px) translateY(-300px);
+    transform: translate(6%, -14%);
   }
   to {
     opacity: 1;
-    transform: translateX(-20px) translateY(-300px);
+    transform: translate(-6%, -14%);
   }
 }
 
@@ -867,9 +849,23 @@ body.show-background .blossom-branch {
   from { transform: translate(0, 0); }
   to { transform: translate(-400px, -400px); }
 }
+@media (max-width: 1200px) {
+  .side-img {
+    width: clamp(160px, 20vw, 300px);
+  }
+
+  .about-layout {
+    gap: 24px;
+  }
+}
 @media (max-width: 900px) {
+  .side-images {
+    display: none;
+  }
+
   .about-layout {
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
   }
 }
