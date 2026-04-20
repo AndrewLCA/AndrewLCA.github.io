@@ -10,15 +10,15 @@
 <body class="subpage career-page">
 
   <nav class="subpage-nav">
-  <a href="index.html" class="nav-logo">Andrew Lu</a>
+    <a href="index.html" class="nav-logo">Andrew Lu</a>
 
-  <div class="nav-links">
-    <a href="aboutme.html">About</a>
-    <a href="career.html" class="active">Career</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+    <div class="nav-links">
+      <a href="aboutme.html">About</a>
+      <a href="career.html" class="active">Career</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
   <div class="career-bg-grid"></div>
   <div class="career-glow career-glow-1"></div>
@@ -26,12 +26,6 @@
 
   <header class="career-hero">
     <p class="career-label">Career System Overview</p>
-    <h1>Building efficient systems through research and optimization.</h1>
-    <p class="career-intro">
-      My work lies at the intersection of computer science and mathematics, 
-      where I design and optimize algorithms to efficiently process data and allocate 
-      system resources.
-    </p>
   </header>
 
   <main class="career-container">
@@ -50,9 +44,6 @@
             <span class="edu-date">2026 – 2027</span>
           </div>
           <h3>University of California, San Diego</h3>
-         <!-- <p>
-            Graduate studies focused on advanced systems, algorithms, and performance-oriented computing.
-          </p>-->
         </article>
 
         <article class="education-card">
@@ -172,27 +163,24 @@
       </div>
     </section>
 
-  
   </main>
 
-<script>
-  let lastScrollY = window.scrollY;
-  const nav = document.querySelector(".subpage-nav");
+  <script>
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector(".subpage-nav");
 
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      nav.classList.add("hide");
-    } else {
-      nav.classList.remove("hide");
-    }
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("hide");
+      } else {
+        nav.classList.remove("hide");
+      }
 
-    lastScrollY = currentScrollY;
-  });
-</script>
+      lastScrollY = currentScrollY;
+    });
+  </script>
 
-<!--<div class="cursor-glow"></div>
-<script src="cursor.js"></script> -->
 </body>
 </html>
