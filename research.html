@@ -33,122 +33,121 @@
       </div>
 
       <div class="terminal-body">
-        <p class="terminal-line">
-          <span class="prompt">andrew@research:~$</span> ./open_research_profile.sh
-        </p>
-        <p class="terminal-output">Research profile loaded.</p>
+        <div id="terminal-output">
+          <p class="terminal-line">
+            <span class="prompt">andrew@research:~$</span> ./open_research_profile.sh
+          </p>
+          <p class="terminal-output">Research profile loaded.</p>
+        </div>
 
-        <p class="terminal-line">
-          <span class="prompt">andrew@research:~$</span> cat overview.txt
-        </p>
-        <p class="terminal-output">
-          My research focuses on high-performance computing and sparse matrix
-          multiplication, with an emphasis on designing efficient algorithms for
-          globally sparse but locally dense structures.
-        </p>
+        <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+          <span class="prompt">andrew@research:~$</span>
+          <input
+            type="text"
+            id="terminal-input"
+            class="terminal-input"
+            spellcheck="false"
+            autofocus
+          />
+        </form>
       </div>
     </section>
 
-    <section class="terminal-window main-terminal">
+    <section class="terminal-window main-terminal hidden-terminal" id="escal-terminal">
       <div class="terminal-bar">
         <span class="dot red"></span>
         <span class="dot yellow"></span>
         <span class="dot green"></span>
-        <span class="terminal-title">andrew@research:~/escal</span>
+        <span class="terminal-title">andrew@research:~/ESCAL</span>
       </div>
 
       <div class="terminal-body">
-        <p class="terminal-line">
-          <span class="prompt">andrew@research:~/escal$</span> ls
-        </p>
-        <p class="terminal-output">project_summary.txt benchmarks.txt results.log methods.md</p>
+        <div id="escal-output"></div>
 
-        <div class="research-block">
-          <p class="terminal-line">
-            <span class="prompt">andrew@research:~/escal$</span> cat project_summary.txt
+        <form id="escal-form" class="terminal-input-row" autocomplete="off">
+          <span class="prompt">andrew@research:~/ESCAL$</span>
+          <input
+            type="text"
+            id="escal-input"
+            class="terminal-input"
+            spellcheck="false"
+          />
+        </form>
+      </div>
+    </section>
+
+    <!-- templates -->
+   <template id="project-summary-template">
+  <div class="research-block">
+    <div class="terminal-card">
+      <div class="card-row">
+        <span class="card-label">Lab</span>
+        <span class="card-value">
+          <a href="https://www.escalab.org/" target="_blank" rel="noopener noreferrer" class="research-link">
+            Extreme Scale Computer Architecture Lab
+          </a>
+        </span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Advisor</span>
+        <span class="card-value">Hung-Wei Tseng</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Role</span>
+        <span class="card-value">Undergraduate Researcher</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Dates</span>
+        <span class="card-value">Aug 2024 – Dec 2025</span>
+      </div>
+      <div class="card-row">
+        <span class="card-label">Area</span>
+        <span class="card-value">High-Performance Computing</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+    <template id="methods-template">
+      <div class="research-block">
+        <div class="terminal-panel">
+          <h2>Research Focus</h2>
+          <p>
+            Designed and implemented a C++ matrix multiplication algorithm
+            optimized for globally sparse, locally dense matrix structures.
           </p>
 
-          <div class="terminal-card">
-            <div class="card-row">
-              <span class="card-label">Lab</span>
-              <span class="card-value">Extreme Scale Computer Architecture Lab</span>
-            </div>
-            <div class="card-row">
-              <span class="card-label">Role</span>
-              <span class="card-value">Undergraduate Researcher</span>
-            </div>
-            <div class="card-row">
-              <span class="card-label">Dates</span>
-              <span class="card-value">Aug 2024 – Dec 2025</span>
-            </div>
-            <div class="card-row">
-              <span class="card-label">Area</span>
-              <span class="card-value">High-Performance Computing</span>
-            </div>
-          </div>
+          <h2>What I Worked On</h2>
+          <ul>
+            <li>Designed a hybrid matrix multiplication approach for structured sparse workloads</li>
+            <li>Studied how local dense tiles can be exploited inside globally sparse matrices</li>
+            <li>Benchmarked performance across different sparsity regimes and hardware settings</li>
+            <li>Compared results against Intel oneAPI MKL and cuBLAS HGEMM baselines</li>
+          </ul>
         </div>
+      </div>
+    </template>
 
-        <div class="research-block">
-          <p class="terminal-line">
-            <span class="prompt">andrew@research:~/escal$</span> cat methods.md
-          </p>
-
-          <div class="terminal-panel">
-            <h2>Research Focus</h2>
-            <p>
-              Designed and implemented a C++ matrix multiplication algorithm
-              optimized for globally sparse, locally dense matrix structures.
-            </p>
-
-            <h2>What I Worked On</h2>
-            <ul>
-              <li>Designed a hybrid matrix multiplication approach for structured sparse workloads</li>
-              <li>Studied how local dense tiles can be exploited inside globally sparse matrices</li>
-              <li>Benchmarked performance across different sparsity regimes and hardware settings</li>
-              <li>Compared results against Intel oneAPI MKL and cuBLAS HGEMM baselines</li>
-            </ul>
+    <template id="results-template">
+      <div class="research-block">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">2.41×</span>
+            <span class="stat-text">speedup over Intel oneAPI MKL</span>
           </div>
-        </div>
 
-        <div class="research-block">
-          <p class="terminal-line">
-            <span class="prompt">andrew@research:~/escal$</span> cat results.log
-          </p>
-
-          <div class="stats-grid">
-            <div class="stat-card">
-              <span class="stat-number">2.41×</span>
-              <span class="stat-text">speedup over Intel oneAPI MKL</span>
-            </div>
-
-            <div class="stat-card">
-              <span class="stat-number">2.53×</span>
-              <span class="stat-text">speedup over cuBLAS HGEMM</span>
-            </div>
-
-            <div class="stat-card wide">
-              <span class="stat-number">1.5%–12%</span>
-              <span class="stat-text">global density range where diagonally dense matrices showed peak performance</span>
-            </div>
+          <div class="stat-card">
+            <span class="stat-number">2.53×</span>
+            <span class="stat-text">speedup over cuBLAS HGEMM</span>
           </div>
-        </div>
 
-        <div class="research-block">
-          <p class="terminal-line">
-            <span class="prompt">andrew@research:~/escal$</span> cat takeaway.txt
-          </p>
-
-          <div class="terminal-panel">
-            <h2>Takeaway</h2>
-            <p>
-              This work showed me how algorithm design, hardware-aware optimization,
-              and experimental benchmarking come together in research. It strengthened
-              my interest in high-performance computing and efficient systems design.
-            </p>
+          <div class="stat-card wide">
+            <span class="stat-number">1.5%–12%</span>
+            <span class="stat-text">global density range where diagonally dense matrices showed peak performance</span>
           </div>
         </div>
       </div>
-    </section>
+    </template>
   </main>
 
   <script>
@@ -165,6 +164,145 @@
       }
 
       lastScrollY = currentScrollY;
+    });
+
+    const terminalForm = document.getElementById("terminal-form");
+    const terminalInput = document.getElementById("terminal-input");
+    const terminalOutput = document.getElementById("terminal-output");
+    const escalTerminal = document.getElementById("escal-terminal");
+
+    const escalForm = document.getElementById("escal-form");
+    const escalInput = document.getElementById("escal-input");
+    const escalOutput = document.getElementById("escal-output");
+
+    let hasShownProjects = false;
+
+    const shownSections = {
+      projectSummary: false,
+      methods: false,
+      results: false
+    };
+
+    function addTopCommand(command) {
+      const line = document.createElement("p");
+      line.className = "terminal-line";
+      line.innerHTML = `<span class="prompt">andrew@research:~$</span> ${command}`;
+      terminalOutput.appendChild(line);
+    }
+
+    function addTopOutput(text) {
+      const out = document.createElement("p");
+      out.className = "terminal-output";
+      out.textContent = text;
+      terminalOutput.appendChild(out);
+    }
+
+    function addEscalCommand(command) {
+      const line = document.createElement("p");
+      line.className = "terminal-line";
+      line.innerHTML = `<span class="prompt">andrew@research:~/ESCAL$</span> ${command}`;
+      escalOutput.appendChild(line);
+    }
+
+    function addEscalOutput(text) {
+      const out = document.createElement("p");
+      out.className = "terminal-output";
+      out.textContent = text;
+      escalOutput.appendChild(out);
+    }
+
+    function appendTemplate(templateId) {
+      const template = document.getElementById(templateId);
+      const clone = template.content.cloneNode(true);
+      escalOutput.appendChild(clone);
+    }
+
+    function scrollEscalToBottom() {
+      setTimeout(() => {
+        escalForm.scrollIntoView({ behavior: "smooth", block: "end" });
+        escalInput.focus();
+      }, 100);
+    }
+
+    terminalForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const command = terminalInput.value.trim();
+      if (!command) return;
+
+      addTopCommand(command);
+
+      if (command.toLowerCase() === "ls") {
+        addTopOutput("ESCAL");
+        hasShownProjects = true;
+      } else if (
+        hasShownProjects &&
+        (command === "cat ESCAL" || command === "cat escal")
+      ) {
+        addTopOutput("Opening ESCAL...");
+        escalTerminal.classList.add("show-terminal");
+
+        setTimeout(() => {
+          escalTerminal.scrollIntoView({ behavior: "smooth", block: "start" });
+          escalInput.focus();
+        }, 200);
+      } else if (!hasShownProjects) {
+        addTopOutput("Command not found. Try: ls");
+      } else {
+        addTopOutput("File not found. Try: cat ESCAL");
+      }
+
+      terminalInput.value = "";
+    });
+
+    escalForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const command = escalInput.value.trim();
+      if (!command) return;
+
+      addEscalCommand(command);
+
+      if (command === "ls") {
+        addEscalOutput("project_summary.txt methods.md results.log");
+      } else if (command === "cat project_summary.txt") {
+        if (!shownSections.projectSummary) {
+          appendTemplate("project-summary-template");
+          shownSections.projectSummary = true;
+        } else {
+          addEscalOutput("project_summary.txt already opened.");
+        }
+        scrollEscalToBottom();
+      } else if (command === "cat methods.md") {
+        if (!shownSections.methods) {
+          appendTemplate("methods-template");
+          shownSections.methods = true;
+        } else {
+          addEscalOutput("methods.md already opened.");
+        }
+        scrollEscalToBottom();
+      } else if (command === "cat results.log") {
+        if (!shownSections.results) {
+          appendTemplate("results-template");
+          shownSections.results = true;
+        } else {
+          addEscalOutput("results.log already opened.");
+        }
+        scrollEscalToBottom();
+      } else {
+        addEscalOutput("Command not found.");
+        scrollEscalToBottom();
+      }
+
+      escalInput.value = "";
+    });
+
+    document.addEventListener("click", () => {
+      if (escalTerminal.classList.contains("show-terminal")) {
+        escalInput.focus();
+      } else {
+        terminalInput.focus();
+      }
     });
   </script>
 

@@ -97,6 +97,7 @@
   font-size: 0.88rem;
   color: #8ee7b2;
   letter-spacing: 0.03em;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .terminal-body {
@@ -109,6 +110,7 @@
   line-height: 1.7;
   color: #b6ffd0;
   font-family: "Courier New", Courier, monospace;
+  word-break: break-word;
 }
 
 .prompt {
@@ -121,10 +123,31 @@
   color: #c9f8d9;
   line-height: 1.8;
   font-family: "Courier New", Courier, monospace;
+  word-break: break-word;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.terminal-input {
+  flex: 1;
+  min-width: 180px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #d7ffe9;
+  font-size: 0.98rem;
+  font-family: "Courier New", Courier, monospace;
+  caret-color: #57f287;
 }
 
 .research-block {
-  margin-top: 24px;
+  margin: 20px 0 0;
 }
 
 .terminal-card,
@@ -222,6 +245,28 @@
   line-height: 1.6;
 }
 
+.hidden-terminal {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+  max-height: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    max-height 0.6s ease,
+    margin-bottom 0.4s ease;
+}
+
+.show-terminal {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  max-height: 5000px;
+  margin-bottom: 28px;
+}
+
 @media (max-width: 700px) {
   .research-shell {
     padding: 100px 16px 50px;
@@ -243,4 +288,15 @@
   .stat-card.wide {
     grid-column: auto;
   }
+}
+.research-link {
+  color: #72f0a0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(114, 240, 160, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.research-link:hover {
+  color: #b8ffd1;
+  border-bottom-color: rgba(184, 255, 209, 0.75);
 }
