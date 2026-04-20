@@ -869,3 +869,126 @@ body.show-background .blossom-branch {
     flex-wrap: wrap;
   }
 }
+
+
+
+/* =========================
+   NAVBAR (GLOBAL SUBPAGES)
+========================= */
+
+.subpage-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 32px;
+  box-sizing: border-box;
+
+  background: rgba(10, 10, 14, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: transform 0.35s ease, background 0.3s ease;
+}
+
+/* hide on scroll */
+.subpage-nav.hide {
+  transform: translateY(-100%);
+}
+
+/* ===== LOGO ===== */
+.nav-logo {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.75;
+}
+
+/* ===== LINKS ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+/* hover effect */
+.nav-links a:hover {
+  color: #c084fc;
+  transform: translateY(-1px);
+}
+
+/* active page */
+.nav-links a.active {
+  color: #ffffff;
+}
+
+/* underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  border-radius: 999px;
+  background: #c084fc;
+
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 700px) {
+  .subpage-nav {
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  background: #0a0808;
+}

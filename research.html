@@ -3,17 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <title>Research | Andrew Lu</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="research.css" />
 </head>
-<body class="subpage">
+<body class="subpage research-page">
 
-  <div class="content">
-    <h1>Research</h1>
-    <p>This is where your about section goes.</p>
+  <nav class="subpage-nav">
+    <a href="index.html" class="nav-logo">Andrew Lu</a>
+    <div class="nav-links">
+      <a href="aboutme.html">About</a>
+      <a href="career.html">Career</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-    <a href="index.html" class="back">← Back</a>
-  </div>
+  <div class="terminal-bg-grid"></div>
+  <div class="terminal-glow terminal-glow-1"></div>
+  <div class="terminal-glow terminal-glow-2"></div>
+
+  <main class="research-shell">
+    <section class="terminal-window hero-terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">andrew@research:~</span>
+      </div>
+
+      <div class="terminal-body">
+        <p class="terminal-line">
+          <span class="prompt">andrew@research:~$</span> ./open_research_profile.sh
+        </p>
+        <p class="terminal-output">Research profile loaded.</p>
+
+        <p class="terminal-line">
+          <span class="prompt">andrew@research:~$</span> cat overview.txt
+        </p>
+        <p class="terminal-output">
+          My research focuses on high-performance computing and sparse matrix
+          multiplication, with an emphasis on designing efficient algorithms for
+          globally sparse but locally dense structures.
+        </p>
+      </div>
+    </section>
+
+    <section class="terminal-window main-terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">andrew@research:~/escal</span>
+      </div>
+
+      <div class="terminal-body">
+        <p class="terminal-line">
+          <span class="prompt">andrew@research:~/escal$</span> ls
+        </p>
+        <p class="terminal-output">project_summary.txt benchmarks.txt results.log methods.md</p>
+
+        <div class="research-block">
+          <p class="terminal-line">
+            <span class="prompt">andrew@research:~/escal$</span> cat project_summary.txt
+          </p>
+
+          <div class="terminal-card">
+            <div class="card-row">
+              <span class="card-label">Lab</span>
+              <span class="card-value">Extreme Scale Computer Architecture Lab</span>
+            </div>
+            <div class="card-row">
+              <span class="card-label">Role</span>
+              <span class="card-value">Undergraduate Researcher</span>
+            </div>
+            <div class="card-row">
+              <span class="card-label">Dates</span>
+              <span class="card-value">Aug 2024 – Dec 2025</span>
+            </div>
+            <div class="card-row">
+              <span class="card-label">Area</span>
+              <span class="card-value">High-Performance Computing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-block">
+          <p class="terminal-line">
+            <span class="prompt">andrew@research:~/escal$</span> cat methods.md
+          </p>
+
+          <div class="terminal-panel">
+            <h2>Research Focus</h2>
+            <p>
+              Designed and implemented a C++ matrix multiplication algorithm
+              optimized for globally sparse, locally dense matrix structures.
+            </p>
+
+            <h2>What I Worked On</h2>
+            <ul>
+              <li>Designed a hybrid matrix multiplication approach for structured sparse workloads</li>
+              <li>Studied how local dense tiles can be exploited inside globally sparse matrices</li>
+              <li>Benchmarked performance across different sparsity regimes and hardware settings</li>
+              <li>Compared results against Intel oneAPI MKL and cuBLAS HGEMM baselines</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="research-block">
+          <p class="terminal-line">
+            <span class="prompt">andrew@research:~/escal$</span> cat results.log
+          </p>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number">2.41×</span>
+              <span class="stat-text">speedup over Intel oneAPI MKL</span>
+            </div>
+
+            <div class="stat-card">
+              <span class="stat-number">2.53×</span>
+              <span class="stat-text">speedup over cuBLAS HGEMM</span>
+            </div>
+
+            <div class="stat-card wide">
+              <span class="stat-number">1.5%–12%</span>
+              <span class="stat-text">global density range where diagonally dense matrices showed peak performance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-block">
+          <p class="terminal-line">
+            <span class="prompt">andrew@research:~/escal$</span> cat takeaway.txt
+          </p>
+
+          <div class="terminal-panel">
+            <h2>Takeaway</h2>
+            <p>
+              This work showed me how algorithm design, hardware-aware optimization,
+              and experimental benchmarking come together in research. It strengthened
+              my interest in high-performance computing and efficient systems design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector(".subpage-nav");
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("hide");
+      } else {
+        nav.classList.remove("hide");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  </script>
 
 </body>
 </html>

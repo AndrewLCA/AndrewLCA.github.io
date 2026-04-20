@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="subpage about-page pokemon-about-page">
+
+
+  <nav class="subpage-nav">
+  <a href="index.html" class="nav-logo">Andrew Lu</a>
+
+  <div class="nav-links">
+    <a href="aboutme.html" class="active">About</a>
+    <a href="career.html">Career</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+
+
     <div class="bg-particles"></div>
 
   <div class="about-layout">
@@ -95,7 +110,7 @@
       </div>
 
       <div class="card-bottom card-reveal reveal-6">
-        <a href="index.html" class="back pokemon-back">← Back</a>
+       <!-- <a href="index.html" class="back pokemon-back">← Back</a> -->
       </div>
     </div>
 
@@ -106,6 +121,25 @@
 </div>
 
   </div>
+
+
+
+  <script>
+  let lastScrollY = window.scrollY;
+  const nav = document.querySelector(".subpage-nav");
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      nav.classList.add("hide");
+    } else {
+      nav.classList.remove("hide");
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
 
 </body>
 </html>

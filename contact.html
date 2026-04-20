@@ -3,17 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <title>Contact | Andrew Lu</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="contact.css" />
 </head>
-<body class="subpage">
+<body class="subpage contact-page">
 
-  <div class="content">
-    <h1>Research</h1>
-    <p>This is where your about section goes.</p>
+  <nav class="subpage-nav">
+    <a href="index.html" class="nav-logo">Andrew Lu</a>
+    <div class="nav-links">
+      <a href="aboutme.html">About</a>
+      <a href="career.html">Career</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
 
-    <a href="index.html" class="back">← Back</a>
-  </div>
+  <main class="contact-container">
+    <section class="contact-panel">
+      <p class="contact-kicker panel-reveal reveal-1">Contact</p>
+      <h1 class="panel-reveal reveal-2">Let’s connect</h1>
+      <p class="contact-intro panel-reveal reveal-3">
+        Feel free to reach out for research, collaboration, projects, or just to say hi.
+      </p>
+
+      <div class="contact-grid">
+        <a class="contact-card card-reveal card-1" href="mailto:andrewlu3002@gmail.com">
+          <span class="contact-card-label">Email</span>
+          <span class="contact-card-value">andrewlu3002@gmail.com</span>
+        </a>
+
+        <a class="contact-card card-reveal card-2" href="https://www.linkedin.com/in/andrewlca" target="_blank" rel="noopener noreferrer">
+          <span class="contact-card-label">LinkedIn</span>
+          <span class="contact-card-value">linkedin.com/in/andrewlca</span>
+        </a>
+
+        <a class="contact-card card-reveal card-3" href="https://github.com/AndrewLCA" target="_blank" rel="noopener noreferrer">
+          <span class="contact-card-label">GitHub</span>
+          <span class="contact-card-value">github.com/AndrewLCA</span>
+        </a>
+
+        <div class="contact-card card-reveal card-4">
+          <span class="contact-card-label">Discord</span>
+          <span class="contact-card-value">yourdiscordname#1234</span>
+        </div>
+
+        <a class="contact-card card-reveal card-5" href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <span class="contact-card-label">Instagram</span>
+          <span class="contact-card-value">@yourusername</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector(".subpage-nav");
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("hide");
+      } else {
+        nav.classList.remove("hide");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  </script>
 
 </body>
 </html>

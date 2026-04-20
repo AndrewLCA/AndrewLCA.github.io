@@ -3,17 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <title>Career | Andrew Lu</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="career.css" />
 </head>
-<body class="subpage">
+<body class="subpage career-page">
 
-  <div class="content">
-    <h1>Career</h1>
-    <p>This is where your about section goes.</p>
+  <nav class="subpage-nav">
+  <a href="index.html" class="nav-logo">Andrew Lu</a>
 
-    <a href="index.html" class="back">← Back</a>
+  <div class="nav-links">
+    <a href="aboutme.html">About</a>
+    <a href="career.html" class="active">Career</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Contact</a>
   </div>
+</nav>
+
+  <div class="career-bg-grid"></div>
+  <div class="career-glow career-glow-1"></div>
+  <div class="career-glow career-glow-2"></div>
+
+  <header class="career-hero">
+    <p class="career-label">Career System Overview</p>
+    <h1>Building efficient systems through research, optimization, and engineering.</h1>
+    <p class="career-intro">
+      My work sits at the intersection of computer science, mathematics, and research.
+      I enjoy building computational systems that process data efficiently, uncover patterns,
+      and translate technical results into useful tools and visualizations.
+    </p>
+  </header>
+
+  <main class="career-container">
+
+    <section class="career-section">
+      <div class="section-heading">
+        <p class="section-kicker">Education</p>
+        <h2>Academic background</h2>
+      </div>
+
+      <div class="education-grid">
+
+        <article class="education-card featured">
+          <div class="edu-top">
+            <span class="edu-degree">M.S. Computer Science</span>
+            <span class="edu-date">2026 – 2027</span>
+          </div>
+          <h3>University of California, San Diego</h3>
+          <p>
+            Graduate studies focused on advanced systems, algorithms, and performance-oriented computing.
+          </p>
+        </article>
+
+        <article class="education-card">
+          <div class="edu-top">
+            <span class="edu-degree">B.S. Mathematics &amp; Computer Science</span>
+            <span class="edu-date">2023 – 2026</span>
+          </div>
+          <h3>University of California, San Diego</h3>
+          <p class="edu-gpa">GPA: 3.8 / 4.0</p>
+
+          <div class="course-tags">
+            <span>Graduate Algorithms</span>
+            <span>Graduate Operating Systems</span>
+            <span>Advanced Data Structures</span>
+            <span>Software Engineering</span>
+            <span>Computer Architecture</span>
+            <span>Parallel Computing</span>
+            <span>Recommender Systems</span>
+            <span>AI: Probability Models</span>
+            <span>Machine Learning Algorithms</span>
+            <span>Optimization Methods</span>
+            <span>Linear Analysis</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="career-section">
+      <div class="section-heading">
+        <p class="section-kicker">Experience Nodes</p>
+        <h2>Career graph</h2>
+      </div>
+
+      <div class="career-graph">
+
+        <article class="career-node featured">
+          <div class="node-top">
+            <span class="node-type">Research</span>
+            <span class="node-date">Aug 2024 – Dec 2025</span>
+          </div>
+          <h3>Extreme Scale Computer Architecture Lab</h3>
+          <h4>Undergraduate Researcher</h4>
+          <p>
+            Designed and implemented a C++ matrix multiplication algorithm optimized
+            for globally sparse, locally dense structures.
+          </p>
+          <ul>
+            <li>Achieved up to <strong>2.41×</strong> speedup over Intel oneAPI MKL</li>
+            <li>Achieved up to <strong>2.53×</strong> speedup over cuBLAS HGEMM</li>
+            <li>Benchmarked performance across sparsity regimes</li>
+          </ul>
+        </article>
+
+        <article class="career-node">
+          <div class="node-top">
+            <span class="node-type">Industry</span>
+            <span class="node-date">Jun 2025 – Aug 2025</span>
+          </div>
+          <h3>D3view</h3>
+          <h4>Software Engineer Intern</h4>
+          <p>
+            Built tools for processing LS-DYNA simulation data and visualizing results.
+          </p>
+          <ul>
+            <li>Engineered a parallelized C++ parser with OpenMP</li>
+            <li>Reduced parsing time by <strong>50%</strong></li>
+            <li>Automated feature extraction and accelerated stress-region detection by <strong>80%</strong></li>
+            <li>Developed interactive 3D visualizations in Babylon.js</li>
+          </ul>
+        </article>
+
+        <article class="career-node">
+          <div class="node-top">
+            <span class="node-type">Teaching</span>
+            <span class="node-date">Aug 2025 – Sept 2025</span>
+          </div>
+          <h3>UC San Diego</h3>
+          <h4>Computer Science Tutor</h4>
+          <p>
+            Helped students better understand computer architecture and performance optimization.
+          </p>
+          <ul>
+            <li>Tutored low-level CPU optimization topics</li>
+            <li>Mentored students in improving C++ efficiency on Intel CPUs</li>
+            <li>Received <strong>100%</strong> positive evaluations</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="career-section">
+      <div class="section-heading">
+        <p class="section-kicker">Projects</p>
+        <h2>Selected builds</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-tag">Web App</div>
+          <h3>Triton Trails</h3>
+          <p>
+            Developed an AllTrails-inspired trail discovery platform for UCSD students
+            using JavaScript, React, Node.js, and SQL.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tag">Machine Learning</div>
+          <h3>Goodreads Spoiler Detection</h3>
+          <p>
+            Built a predictive NLP pipeline with Word2Vec and pandas to detect spoilers
+            in review text, reaching <strong>97%</strong> accuracy.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="career-section">
+      <div class="section-heading">
+        <p class="section-kicker">Focus Areas</p>
+        <h2>What drives me</h2>
+      </div>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <h3>High-Performance Computing</h3>
+          <p>Performance-aware systems, sparse computation, and low-level optimization.</p>
+        </div>
+
+        <div class="focus-card">
+          <h3>Research</h3>
+          <p>Using experimentation and benchmarking to understand what actually works.</p>
+        </div>
+
+        <div class="focus-card">
+          <h3>Visualization</h3>
+          <p>Turning technical data into interactive and intuitive visual tools.</p>
+        </div>
+
+        <div class="focus-card">
+          <h3>Engineering</h3>
+          <p>Building practical software that connects theory, performance, and usability.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  let lastScrollY = window.scrollY;
+  const nav = document.querySelector(".subpage-nav");
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      nav.classList.add("hide");
+    } else {
+      nav.classList.remove("hide");
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
+
 
 </body>
 </html>

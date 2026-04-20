@@ -1,0 +1,356 @@
+.career-page {
+  position: relative;
+  min-height: 100vh;
+  color: #f4f7fb;
+  background:
+    radial-gradient(circle at top left, rgba(68, 105, 255, 0.14), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(100, 255, 218, 0.10), transparent 25%),
+    linear-gradient(135deg, #070b14 0%, #0d1322 45%, #06080f 100%);
+  overflow-x: hidden;
+}
+
+.career-bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.25));
+  z-index: 0;
+}
+
+.career-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.career-glow-1 {
+  width: 320px;
+  height: 320px;
+  background: rgba(74, 144, 226, 0.18);
+  top: 60px;
+  left: -80px;
+}
+
+.career-glow-2 {
+  width: 280px;
+  height: 280px;
+  background: rgba(79, 209, 197, 0.16);
+  bottom: 40px;
+  right: -60px;
+}
+
+.career-hero,
+.career-container {
+  position: relative;
+  z-index: 1;
+}
+
+.career-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 90px 24px 40px;
+}
+
+.career-label {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #7dd3fc;
+}
+
+.career-hero h1 {
+  margin: 0;
+  max-width: 780px;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.career-intro {
+  margin-top: 20px;
+  max-width: 760px;
+  color: #c8d4e6;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.career-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.career-section {
+  margin-top: 72px;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.section-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: #67e8f9;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: #ffffff;
+}
+
+/* education */
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.education-card {
+  padding: 26px 22px;
+  border-radius: 22px;
+  background: rgba(10, 16, 29, 0.84);
+  border: 1px solid rgba(120, 152, 255, 0.22);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+}
+
+.education-card.featured {
+  background: linear-gradient(180deg, rgba(19, 28, 51, 0.94), rgba(11, 16, 29, 0.94));
+  border-color: rgba(115, 223, 255, 0.32);
+}
+
+.edu-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.edu-degree {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #7dd3fc;
+}
+
+.edu-date {
+  font-size: 0.9rem;
+  color: #9fb0c8;
+}
+
+.education-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.education-card p {
+  margin: 10px 0;
+  color: #c5d1e3;
+  line-height: 1.6;
+}
+
+.edu-gpa {
+  margin-top: 6px;
+  font-weight: 500;
+  color: #c7d3e6;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.course-tags span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: rgba(76, 201, 240, 0.12);
+  border: 1px solid rgba(103, 232, 249, 0.22);
+  color: #9be7ff;
+}
+
+/* experience */
+.career-graph {
+  display: grid;
+  gap: 22px;
+}
+
+.career-node {
+  position: relative;
+  padding: 28px 24px;
+  border-radius: 24px;
+  background: rgba(10, 16, 29, 0.84);
+  border: 1px solid rgba(120, 152, 255, 0.22);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+}
+
+.career-node.featured {
+  background: linear-gradient(180deg, rgba(19, 28, 51, 0.94), rgba(11, 16, 29, 0.94));
+  border-color: rgba(115, 223, 255, 0.32);
+}
+
+.node-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.node-type {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #7dd3fc;
+}
+
+.node-date {
+  font-size: 0.92rem;
+  color: #9fb0c8;
+}
+
+.career-node h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  color: #ffffff;
+}
+
+.career-node h4 {
+  margin: 8px 0 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c7d3e6;
+}
+
+.career-node p {
+  margin: 0 0 14px;
+  color: #c5d1e3;
+  line-height: 1.72;
+}
+
+.career-node ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #d7e2f0;
+}
+
+.career-node li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.career-node strong {
+  color: #ffffff;
+}
+
+/* projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  padding: 24px;
+  border-radius: 22px;
+  background: rgba(10, 16, 29, 0.84);
+  border: 1px solid rgba(120, 152, 255, 0.22);
+}
+
+.project-tag {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(76, 201, 240, 0.12);
+  border: 1px solid rgba(103, 232, 249, 0.22);
+  font-size: 0.82rem;
+  color: #9be7ff;
+}
+
+.project-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  margin: 0;
+  color: #c6d1e3;
+  line-height: 1.7;
+}
+
+/* focus */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.focus-card {
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(9, 14, 26, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.focus-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  color: #ffffff;
+}
+
+.focus-card p {
+  margin: 0;
+  color: #becbdd;
+  line-height: 1.65;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+  .project-grid,
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .career-hero {
+    padding: 72px 18px 30px;
+  }
+
+  .career-container {
+    padding: 0 18px 60px;
+  }
+
+  .career-node,
+  .project-card,
+  .focus-card,
+  .education-card {
+    border-radius: 18px;
+  }
+
+  .career-hero h1 {
+    line-height: 1.14;
+  }
+}
