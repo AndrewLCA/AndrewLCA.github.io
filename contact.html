@@ -32,7 +32,7 @@
     <span class="petal petal-10"></span>
   </div>
 
-  <div class="cursor-glow" aria-hidden="true"></div>
+ 
 
   <main class="contact-container">
     <section class="contact-panel">
@@ -81,71 +81,8 @@
 
       lastScrollY = currentScrollY;
     });
-
-    const cursorGlow = document.querySelector(".cursor-glow");
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-
-    function animateCursor() {
-      currentX += (mouseX - currentX) * 0.18;
-      currentY += (mouseY - currentY) * 0.18;
-
-      cursorGlow.style.left = currentX + "px";
-      cursorGlow.style.top = currentY + "px";
-
-      requestAnimationFrame(animateCursor);
-    }
-
-    animateCursor();
-
-    function spawnTrailPetal(x, y) {
-      const petal = document.createElement("span");
-      petal.className = "cursor-petal";
-
-      const size = 6 + Math.random() * 8;
-      const drift = (Math.random() - 0.5) * 36;
-      const rotate = (Math.random() - 0.5) * 160;
-      const duration = 700 + Math.random() * 500;
-
-      petal.style.width = size + "px";
-      petal.style.height = size * 0.68 + "px";
-      petal.style.left = x + "px";
-      petal.style.top = y + "px";
-      petal.style.setProperty("--drift-x", drift + "px");
-      petal.style.setProperty("--rotate-end", rotate + "deg");
-      petal.style.animationDuration = duration + "ms";
-
-      document.body.appendChild(petal);
-
-      setTimeout(() => {
-        petal.remove();
-      }, duration);
-    }
-
-    let lastPetalTime = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      const now = Date.now();
-      if (now - lastPetalTime > 32) {
-        spawnTrailPetal(e.clientX, e.clientY);
-        lastPetalTime = now;
-      }
-    });
-
-    window.addEventListener("mouseleave", () => {
-      cursorGlow.classList.add("cursor-hidden");
-    });
-
-    window.addEventListener("mouseenter", () => {
-      cursorGlow.classList.remove("cursor-hidden");
-    });
   </script>
-<div class="cursor-glow"></div>
-<script src="cursor.js"></script>
+<!--<div class="cursor-glow"></div>
+<script src="cursor.js"></script> -->
 </body>
 </html>

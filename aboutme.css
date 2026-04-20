@@ -1,0 +1,518 @@
+/* ===== ABOUT PAGE / POKEMON CARD ===== */
+.pokemon-about-page {
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at top left, rgba(248, 245, 246, 0.2), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(7, 0, 14, 0.15), transparent 30%),
+    linear-gradient(135deg, #e4dde1 0%, #4e4d50 40%, #000002 100%);
+}
+
+.about-layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 60px);
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 40px);
+  flex-wrap: nowrap;
+}
+
+/* ===== CENTER CARD ===== */
+.pokemon-card {
+  width: min(92vw, 430px);
+  max-width: 430px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(247, 241, 225, 0.97)),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.16), rgba(255, 215, 0, 0.08));
+  border: 10px solid #e0b84f;
+  border-radius: 22px;
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.30),
+    inset 0 0 0 3px #f7e7a8;
+  padding: 16px 16px 18px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 15%,
+      rgba(255, 255, 255, 0.24) 30%,
+      transparent 45%,
+      rgba(255, 255, 255, 0.14) 60%,
+      transparent 75%
+    );
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: holoShine 4.5s linear infinite;
+}
+
+@keyframes holoShine {
+  0% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(30%);
+  }
+}
+
+/* ===== SUPPORTER HEADER ===== */
+.card-super-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 4px 8px;
+  margin-bottom: 2px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.super-header-left {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #7a7a72;
+  font-style: italic;
+}
+
+.super-header-right {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #d8742b;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 12px;
+  padding-top: 4px;
+}
+
+.card-name-block h1 {
+  margin: 0;
+  font-size: 1.95rem;
+  line-height: 1.05;
+  color: #111;
+}
+
+.card-image-frame {
+  position: relative;
+  border: 5px solid #d4aa3d;
+  border-radius: 4px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.5), transparent 40%),
+    linear-gradient(135deg, #f5d0fe, #dbeafe, #fef3c7);
+  margin-bottom: 12px;
+  height: 280px;
+}
+
+.card-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 80%;
+  display: block;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.card-meta span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.10);
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  color: #5b21b6;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+}
+
+.card-description {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #1f2937;
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  padding: 12px 0;
+}
+
+.card-description p {
+  margin: 0;
+}
+
+.card-attacks {
+  margin-top: 14px;
+}
+
+.attack-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.attack-row:last-child {
+  border-bottom: none;
+}
+
+.attack-cost {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.energy {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.psychic { background: #a855f7; }
+.electric { background: #facc15; }
+.grass { background: #22c55e; }
+.fire { background: #ef4444; }
+.water { background: #3b82f6; }
+.dark { background: #080a0c; }
+.fighting { background: #c2410c; }
+
+.attack-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.attack-text {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #374151;
+  margin-top: 2px;
+}
+
+.attack-damage {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.card-stats {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* ===== BOTTOM SUPPORTER BOX ===== */
+.card-footer-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.card-set-info {
+  font-size: 0.7rem;
+  color: #4b5563;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.supporter-rule-box {
+  max-width: 205px;
+  margin-left: auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #f9d8ae 0%, #f2c386 100%);
+  border: 1px solid #d09b54;
+  color: #7a3f05;
+  font-size: 0.73rem;
+  line-height: 1.35;
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* ===== REVEALS ===== */
+.card-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeUp 0.65s ease forwards;
+}
+
+.reveal-1 { animation-delay: 0.08s; }
+.reveal-2 { animation-delay: 0.18s; }
+.reveal-3 { animation-delay: 0.3s; }
+.reveal-4 { animation-delay: 0.42s; }
+.reveal-5 { animation-delay: 0.54s; }
+.reveal-6 { animation-delay: 1.3s; }
+.reveal-7 { animation-delay: 1.45s; }
+
+.attack-reveal {
+  opacity: 0;
+  transform: translateX(-16px);
+  animation: attackSlideIn 0.5s ease forwards;
+}
+
+.attack-1 { animation-delay: 0.72s; }
+.attack-2 { animation-delay: 0.92s; }
+.attack-3 { animation-delay: 1.12s; }
+
+@keyframes cardFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes attackSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== SIDE CARD STACKS ===== */
+.side-images {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  flex-shrink: 0;
+}
+
+.side-images.left {
+  align-items: flex-end;
+}
+
+.side-images.right {
+  align-items: flex-start;
+}
+
+.side-card-wrap {
+  position: relative;
+  width: clamp(135px, 14vw, 210px);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.34),
+    0 6px 12px rgba(0, 0, 0, 0.18);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.side-card-wrap:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:
+    0 22px 42px rgba(0, 0, 0, 0.42),
+    0 10px 18px rgba(0, 0, 0, 0.22);
+}
+
+.side-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.tilt-left-1 {
+  transform: rotate(-10deg) translateX(10px);
+}
+
+.tilt-left-2 {
+  transform: rotate(7deg) translateX(-4px);
+}
+
+.tilt-right-1 {
+  transform: rotate(9deg) translateX(-10px);
+}
+
+.tilt-right-2 {
+  transform: rotate(-6deg) translateX(6px);
+}
+
+.tilt-right-3 {
+  transform: rotate(11deg) translateX(-2px);
+}
+
+/* separate side reveal classes */
+.side-reveal {
+  opacity: 0;
+  animation-duration: 0.85s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.side-card-1 {
+  animation-name: sideCardInLeft;
+  animation-delay: 0.95s;
+}
+
+.side-card-2 {
+  animation-name: sideCardInLeft;
+  animation-delay: 1.15s;
+}
+
+.side-card-3 {
+  animation-name: sideCardInRight;
+  animation-delay: 1.05s;
+}
+
+.side-card-4 {
+  animation-name: sideCardInRight;
+  animation-delay: 1.25s;
+}
+
+.side-card-5 {
+  animation-name: sideCardInRight;
+  animation-delay: 1.45s;
+}
+
+@keyframes sideCardInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-28px) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sideCardInRight {
+  from {
+    opacity: 0;
+    transform: translateX(28px) rotate(8deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== BACKGROUND PARTICLES ===== */
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-particles::before,
+.bg-particles::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 2px, transparent 2px);
+  background-size: 20px 20px;
+  animation: drift 20s linear infinite;
+}
+
+.bg-particles::after {
+  background-image: radial-gradient(rgba(168, 85, 247, 0.35) 2px, transparent 2px);
+  animation-direction: reverse;
+  opacity: 0.7;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-400px, -400px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1300px) {
+  .side-card-wrap {
+    width: clamp(120px, 13vw, 170px);
+  }
+
+  .about-layout {
+    gap: 24px;
+  }
+
+  .side-images {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 980px) {
+  .side-images {
+    display: none;
+  }
+
+  .about-layout {
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .pokemon-card {
+    padding: 14px;
+    border-width: 8px;
+  }
+
+  .super-header-left {
+    font-size: 0.9rem;
+  }
+
+  .super-header-right {
+    font-size: 0.86rem;
+  }
+
+  .card-name-block h1 {
+    font-size: 1.45rem;
+  }
+
+  .card-image-frame {
+    height: 230px;
+  }
+
+  .attack-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .attack-damage {
+    justify-self: end;
+  }
+
+  .card-footer-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-set-info {
+    white-space: normal;
+  }
+
+  .supporter-rule-box {
+    max-width: 100%;
+  }
+}

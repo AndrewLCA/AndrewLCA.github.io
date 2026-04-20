@@ -3,55 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <title>About | Andrew Lu</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="aboutme.css" />
 </head>
 <body class="subpage about-page pokemon-about-page">
 
-
   <nav class="subpage-nav">
-  <a href="index.html" class="nav-logo">Andrew Lu</a>
+    <a href="index.html" class="nav-logo">Andrew Lu</a>
 
-  <div class="nav-links">
-    <a href="aboutme.html" class="active">About</a>
-    <a href="career.html">Career</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+    <div class="nav-links">
+      <a href="aboutme.html" class="active">About</a>
+      <a href="career.html">Career</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-
-
-    <div class="bg-particles"></div>
+  <div class="bg-particles"></div>
 
   <div class="about-layout">
 
     <div class="side-images left">
-  <div class="side-img-wrap greninja side-reveal side-1">
-    <img src="greninja1.jpg" alt="Greninja" class="side-img" />
-  </div>
-</div>
-
-    <div class="pokemon-card">
-      <div class="card-top card-reveal reveal-1">
-        <div class="card-name-block">
-          <h1>Andrew Lu</h1>
-          <span class="card-type">Trainer Card</span>
-        </div>
-        <div class="card-hp">HP 100</div> 
+      <div class="side-card-wrap side-reveal side-card-1 tilt-left-1">
+        <img src="card1.jpg" alt="Pokemon card 1" class="side-card-img" />
       </div>
 
-      <div class="card-image-frame card-reveal reveal-2">
+      <div class="side-card-wrap side-reveal side-card-2 tilt-left-2">
+        <img src="card2.png" alt="Pokemon card 2" class="side-card-img" />
+      </div>
+    </div>
+
+    <div class="pokemon-card supporter-card">
+      <div class="card-super-header card-reveal reveal-1">
+        <span class="super-header-left">TRAINER</span>
+        <span class="super-header-right">Supporter</span>
+      </div>
+
+      <div class="card-top card-reveal reveal-2">
+        <div class="card-name-block">
+          <h1>Andrew Lu</h1>
+        </div>
+      </div>
+
+      <div class="card-image-frame card-reveal reveal-3">
         <img src="friends.png" alt="Andrew Lu" />
       </div>
 
-      <div class="card-meta card-reveal reveal-3">
+      <div class="card-meta card-reveal reveal-4">
         <span>Bay Area</span>
         <span>UC San Diego</span>
         <span>Researcher</span>
       </div>
 
-      <div class="card-description card-reveal reveal-4">
+      <div class="card-description card-reveal reveal-5">
         <p>
           I recently earned my Bachelor’s degree in Mathematics and Computer Science
           from UC San Diego and am continuing toward a Master’s in Computer Science.
@@ -103,44 +108,54 @@
         </div>
       </div>
 
-      <div class="card-stats card-reveal reveal-5">
+      <div class="card-stats card-reveal reveal-6">
         <div><strong>Strengths:</strong> Problem Solving, Research, Tennis</div>
         <div><strong>Interests:</strong> Pokémon, Chess, Tea, Anime</div>
         <div><strong>Languages:</strong> English, Chinese</div>
       </div>
 
-      <div class="card-bottom card-reveal reveal-6">
-       <!-- <a href="index.html" class="back pokemon-back">← Back</a> -->
+      <div class="card-footer-row card-reveal reveal-7">
+        <div class="card-set-info">
+          <span>No. 175/214</span>
+        </div>
+
+        <div class="supporter-rule-box">
+          You may play only 1 Supporter card during your turn (before your attack).
+        </div>
       </div>
     </div>
 
-   <div class="side-images right">
-  <div class="side-img-wrap pikachu side-reveal side-2">
-    <img src="pikachu.png" alt="Pikachu" class="side-img" />
-  </div>
-</div>
+    <div class="side-images right">
+      <div class="side-card-wrap side-reveal side-card-3 tilt-right-1">
+        <img src="card3.jpg" alt="Pokemon card 3" class="side-card-img" />
+      </div>
+
+      <div class="side-card-wrap side-reveal side-card-4 tilt-right-2">
+        <img src="card4.png" alt="Pokemon card 4" class="side-card-img" />
+      </div>
+
+      <div class="side-card-wrap side-reveal side-card-5 tilt-right-3">
+        <img src="card5.jpg" alt="Pokemon card 5" class="side-card-img" />
+      </div>
+    </div>
 
   </div>
-
-
 
   <script>
-  let lastScrollY = window.scrollY;
-  const nav = document.querySelector(".subpage-nav");
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector(".subpage-nav");
 
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      nav.classList.add("hide");
-    } else {
-      nav.classList.remove("hide");
-    }
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("hide");
+      } else {
+        nav.classList.remove("hide");
+      }
 
-    lastScrollY = currentScrollY;
-  });
-</script>
-<div class="cursor-glow"></div>
-<script src="cursor.js"></script>
+      lastScrollY = currentScrollY;
+    });
+  </script>
 </body>
 </html>

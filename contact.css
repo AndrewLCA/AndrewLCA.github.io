@@ -7,10 +7,6 @@
   cursor: default;
 }
 
-.contact-page,
-.contact-page * {
-  cursor: none !important;
-}
 
 
 .contact-page::before {
