@@ -24,6 +24,8 @@
   <div class="terminal-glow terminal-glow-2"></div>
 
   <main class="research-shell">
+
+    <!-- TOP TERMINAL -->
     <section class="terminal-window hero-terminal">
       <div class="terminal-bar">
         <span class="dot red"></span>
@@ -38,21 +40,17 @@
             <span class="prompt">andrew@research:~$</span> ./open_research_profile.sh
           </p>
           <p class="terminal-output">Research profile loaded.</p>
+          <p class="terminal-output">Type <span class="inline-code">help</span> to begin.</p>
         </div>
 
-        <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+        <form id="terminal-form" class="terminal-input-row">
           <span class="prompt">andrew@research:~$</span>
-          <input
-            type="text"
-            id="terminal-input"
-            class="terminal-input"
-            spellcheck="false"
-            autofocus
-          />
+          <input id="terminal-input" class="terminal-input" autofocus />
         </form>
       </div>
     </section>
 
+    <!-- ESCAL TERMINAL -->
     <section class="terminal-window main-terminal hidden-terminal" id="escal-terminal">
       <div class="terminal-bar">
         <span class="dot red"></span>
@@ -62,67 +60,46 @@
       </div>
 
       <div class="terminal-body">
-        <div id="escal-output"></div>
+        <div id="escal-output">
+          <p class="terminal-output">Entered ESCAL directory.</p>
+          <p class="terminal-output">Type <span class="inline-code">help</span>.</p>
+        </div>
 
-        <form id="escal-form" class="terminal-input-row" autocomplete="off">
+        <form id="escal-form" class="terminal-input-row">
           <span class="prompt">andrew@research:~/ESCAL$</span>
-          <input
-            type="text"
-            id="escal-input"
-            class="terminal-input"
-            spellcheck="false"
-          />
+          <input id="escal-input" class="terminal-input" />
         </form>
       </div>
     </section>
 
-    <!-- templates -->
-   <template id="project-summary-template">
-  <div class="research-block">
-    <div class="terminal-card">
-      <div class="card-row">
-        <span class="card-label">Lab</span>
-        <span class="card-value">
-          <a href="https://www.escalab.org/" target="_blank" rel="noopener noreferrer" class="research-link">
-            Extreme Scale Computer Architecture Lab
-          </a>
-        </span>
+    <!-- TEMPLATES -->
+    <template id="project-summary-template">
+      <div class="research-block">
+        <div class="terminal-card">
+          <div class="card-row">
+            <span class="card-label">Lab</span>
+            <span class="card-value">
+              <a href="https://www.escalab.org/" target="_blank" class="research-link">
+                ESCAL Lab
+              </a>
+            </span>
+          </div>
+          <div class="card-row"><span class="card-label">Advisor</span><span class="card-value">Hung-Wei Tseng</span></div>
+          <div class="card-row"><span class="card-label">Role</span><span class="card-value">Undergraduate Researcher</span></div>
+          <div class="card-row"><span class="card-label">Dates</span><span class="card-value">Aug 2024 – Dec 2025</span></div>
+        </div>
       </div>
-      <div class="card-row">
-        <span class="card-label">Advisor</span>
-        <span class="card-value">Hung-Wei Tseng</span>
-      </div>
-      <div class="card-row">
-        <span class="card-label">Role</span>
-        <span class="card-value">Undergraduate Researcher</span>
-      </div>
-      <div class="card-row">
-        <span class="card-label">Dates</span>
-        <span class="card-value">Aug 2024 – Dec 2025</span>
-      </div>
-      <div class="card-row">
-        <span class="card-label">Area</span>
-        <span class="card-value">High-Performance Computing</span>
-      </div>
-    </div>
-  </div>
-</template>
+    </template>
 
     <template id="methods-template">
       <div class="research-block">
         <div class="terminal-panel">
-          <h2>Research Focus</h2>
-          <p>
-            Designed and implemented a C++ matrix multiplication algorithm
-            optimized for globally sparse, locally dense matrix structures.
-          </p>
-
-          <h2>What I Worked On</h2>
+          <h2>Research</h2>
+          <p>C++ hybrid sparse-dense matrix multiplication.</p>
           <ul>
-            <li>Designed a hybrid matrix multiplication approach for structured sparse workloads</li>
-            <li>Studied how local dense tiles can be exploited inside globally sparse matrices</li>
-            <li>Benchmarked performance across different sparsity regimes and hardware settings</li>
-            <li>Compared results against Intel oneAPI MKL and cuBLAS HGEMM baselines</li>
+            <li>Hybrid sparse-dense algorithm</li>
+            <li>Tile-based optimization</li>
+            <li>Benchmarks vs MKL + cuBLAS</li>
           </ul>
         </div>
       </div>
@@ -131,181 +108,258 @@
     <template id="results-template">
       <div class="research-block">
         <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-number">2.41×</span>
-            <span class="stat-text">speedup over Intel oneAPI MKL</span>
-          </div>
-
-          <div class="stat-card">
-            <span class="stat-number">2.53×</span>
-            <span class="stat-text">speedup over cuBLAS HGEMM</span>
-          </div>
-
-          <div class="stat-card wide">
-            <span class="stat-number">1.5%–12%</span>
-            <span class="stat-text">global density range where diagonally dense matrices showed peak performance</span>
-          </div>
+          <div class="stat-card"><span class="stat-number">2.4×</span><span>MKL speedup</span></div>
+          <div class="stat-card"><span class="stat-number">2.5×</span><span>cuBLAS speedup</span></div>
         </div>
       </div>
     </template>
+
   </main>
 
-  <script>
-    let lastScrollY = window.scrollY;
-    const nav = document.querySelector(".subpage-nav");
+<script>
+  const terminalInput = document.getElementById("terminal-input");
+  const terminalOutput = document.getElementById("terminal-output");
+  const escalInput = document.getElementById("escal-input");
+  const escalOutput = document.getElementById("escal-output");
+  const escalTerminal = document.getElementById("escal-terminal");
+  const terminalForm = document.getElementById("terminal-form");
+  const escalForm = document.getElementById("escal-form");
 
-    window.addEventListener("scroll", () => {
-      const currentScrollY = window.scrollY;
+  let currentDirectory = "~";
 
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        nav.classList.add("hide");
-      } else {
-        nav.classList.remove("hide");
+  /* ===== NAV HIDE ON SCROLL ===== */
+  let lastScrollY = window.scrollY;
+  const nav = document.querySelector(".subpage-nav");
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      nav.classList.add("hide");
+    } else {
+      nav.classList.remove("hide");
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  /* ===== HISTORY ===== */
+  let history = [];
+  let historyIndex = -1;
+
+  function handleHistory(input, e) {
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (history.length > 0) {
+        historyIndex = Math.max(0, historyIndex - 1);
+        input.value = history[historyIndex] || "";
       }
-
-      lastScrollY = currentScrollY;
-    });
-
-    const terminalForm = document.getElementById("terminal-form");
-    const terminalInput = document.getElementById("terminal-input");
-    const terminalOutput = document.getElementById("terminal-output");
-    const escalTerminal = document.getElementById("escal-terminal");
-
-    const escalForm = document.getElementById("escal-form");
-    const escalInput = document.getElementById("escal-input");
-    const escalOutput = document.getElementById("escal-output");
-
-    let hasShownProjects = false;
-
-    const shownSections = {
-      projectSummary: false,
-      methods: false,
-      results: false
-    };
-
-    function addTopCommand(command) {
-      const line = document.createElement("p");
-      line.className = "terminal-line";
-      line.innerHTML = `<span class="prompt">andrew@research:~$</span> ${command}`;
-      terminalOutput.appendChild(line);
     }
 
-    function addTopOutput(text) {
-      const out = document.createElement("p");
-      out.className = "terminal-output";
-      out.textContent = text;
-      terminalOutput.appendChild(out);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (history.length > 0) {
+        historyIndex = Math.min(history.length, historyIndex + 1);
+        input.value = history[historyIndex] || "";
+      }
     }
+  }
 
-    function addEscalCommand(command) {
-      const line = document.createElement("p");
-      line.className = "terminal-line";
-      line.innerHTML = `<span class="prompt">andrew@research:~/ESCAL$</span> ${command}`;
-      escalOutput.appendChild(line);
+  /* ===== OUTPUT HELPERS ===== */
+  function addTop(cmd) {
+    terminalOutput.innerHTML += `<p class="terminal-line"><span class="prompt">andrew@research:~$</span> ${cmd}</p>`;
+  }
+
+  function addTopOut(txt) {
+    terminalOutput.innerHTML += `<p class="terminal-output">${txt}</p>`;
+  }
+
+  function addEscal(cmd) {
+    escalOutput.innerHTML += `<p class="terminal-line"><span class="prompt">andrew@research:~/ESCAL$</span> ${cmd}</p>`;
+  }
+
+  function addEscalOut(txt) {
+    escalOutput.innerHTML += `<p class="terminal-output">${txt}</p>`;
+  }
+
+  function appendTemplate(id) {
+    escalOutput.appendChild(
+      document.getElementById(id).content.cloneNode(true)
+    );
+  }
+
+  function scrollTopToBottom() {
+    setTimeout(() => {
+      terminalForm.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 50);
+  }
+
+  function scrollEscalToBottom() {
+    setTimeout(() => {
+      escalForm.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 50);
+  }
+
+  /* ===== AUTOCOMPLETE ===== */
+  function autocompleteTop() {
+    const value = terminalInput.value.trim().toLowerCase();
+
+    if (value === "c" || value === "cd" || value === "cd ") {
+      terminalInput.value = "cd ESCAL";
+    } else if (value === "l" || value === "ls") {
+      terminalInput.value = "ls";
+    } else if (value === "p" || value === "pw" || value === "pwd") {
+      terminalInput.value = "pwd";
+    } else if (value === "h" || value === "he" || value === "hel" || value === "help") {
+      terminalInput.value = "help";
+    } else if (value === "cl" || value === "cle" || value === "clea" || value === "clear") {
+      terminalInput.value = "clear";
     }
+  }
 
-    function addEscalOutput(text) {
-      const out = document.createElement("p");
-      out.className = "terminal-output";
-      out.textContent = text;
-      escalOutput.appendChild(out);
+  function autocompleteEscal() {
+    const value = escalInput.value.trim().toLowerCase();
+
+    if (value === "l" || value === "ls") {
+      escalInput.value = "ls";
+    } else if (value === "p" || value === "pw" || value === "pwd") {
+      escalInput.value = "pwd";
+    } else if (value === "h" || value === "he" || value === "hel" || value === "help") {
+      escalInput.value = "help";
+    } else if (value === "cl" || value === "cle" || value === "clea" || value === "clear") {
+      escalInput.value = "clear";
+    } else if (value === "cd" || value === "cd " || value === "cd ." || value === "cd ..") {
+      escalInput.value = "cd ..";
+    } else if ("cat project_summary.txt".startsWith(value)) {
+      escalInput.value = "cat project_summary.txt";
+    } else if ("cat methods.md".startsWith(value)) {
+      escalInput.value = "cat methods.md";
+    } else if ("cat results.log".startsWith(value)) {
+      escalInput.value = "cat results.log";
     }
+  }
 
-    function appendTemplate(templateId) {
-      const template = document.getElementById(templateId);
-      const clone = template.content.cloneNode(true);
-      escalOutput.appendChild(clone);
-    }
+  /* ===== COMMAND RUNNERS ===== */
+  function runTop(cmd) {
+    const c = cmd.trim().toLowerCase();
 
-    function scrollEscalToBottom() {
+    if (c === "help") {
+      addTopOut("ls, pwd, cd, clear, help");
+    } else if (c === "ls") {
+      addTopOut("ESCAL/");
+    } else if (c === "pwd") {
+      addTopOut("/home/andrew");
+    } else if (c === "clear") {
+      terminalOutput.innerHTML = "";
+    } else if (c === "cd escal") {
+      addTopOut("Entering ESCAL...");
+      currentDirectory = "~/ESCAL";
+      escalTerminal.classList.add("show-terminal");
+
       setTimeout(() => {
-        escalForm.scrollIntoView({ behavior: "smooth", block: "end" });
+        escalTerminal.scrollIntoView({ behavior: "smooth", block: "start" });
         escalInput.focus();
-      }, 100);
+      }, 180);
+    } else if (c === "cd ..") {
+      addTopOut("Already at top-level directory.");
+    } else if (c.startsWith("cat ")) {
+      addTopOut("cat: no such file in this directory");
+    } else {
+      addTopOut("Command not found");
     }
 
-    terminalForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+    scrollTopToBottom();
+  }
 
-      const command = terminalInput.value.trim();
-      if (!command) return;
+  function runEscal(cmd) {
+    const c = cmd.trim().toLowerCase();
 
-      addTopCommand(command);
+    if (c === "help") {
+      addEscalOut("ls, pwd, cat, clear, cd .., help");
+    } else if (c === "ls") {
+      addEscalOut("project_summary.txt methods.md results.log");
+    } else if (c === "pwd") {
+      addEscalOut("/home/andrew/ESCAL");
+    } else if (c === "clear") {
+      escalOutput.innerHTML = "";
+    } else if (c === "cd ..") {
+      addEscalOut("Leaving ESCAL...");
+      currentDirectory = "~";
+      escalTerminal.classList.remove("show-terminal");
 
-      if (command.toLowerCase() === "ls") {
-        addTopOutput("ESCAL");
-        hasShownProjects = true;
-      } else if (
-        hasShownProjects &&
-        (command === "cat ESCAL" || command === "cat escal")
-      ) {
-        addTopOutput("Opening ESCAL...");
-        escalTerminal.classList.add("show-terminal");
-
-        setTimeout(() => {
-          escalTerminal.scrollIntoView({ behavior: "smooth", block: "start" });
-          escalInput.focus();
-        }, 200);
-      } else if (!hasShownProjects) {
-        addTopOutput("Command not found. Try: ls");
-      } else {
-        addTopOutput("File not found. Try: cat ESCAL");
-      }
-
-      terminalInput.value = "";
-    });
-
-    escalForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const command = escalInput.value.trim();
-      if (!command) return;
-
-      addEscalCommand(command);
-
-      if (command === "ls") {
-        addEscalOutput("project_summary.txt methods.md results.log");
-      } else if (command === "cat project_summary.txt") {
-        if (!shownSections.projectSummary) {
-          appendTemplate("project-summary-template");
-          shownSections.projectSummary = true;
-        } else {
-          addEscalOutput("project_summary.txt already opened.");
-        }
-        scrollEscalToBottom();
-      } else if (command === "cat methods.md") {
-        if (!shownSections.methods) {
-          appendTemplate("methods-template");
-          shownSections.methods = true;
-        } else {
-          addEscalOutput("methods.md already opened.");
-        }
-        scrollEscalToBottom();
-      } else if (command === "cat results.log") {
-        if (!shownSections.results) {
-          appendTemplate("results-template");
-          shownSections.results = true;
-        } else {
-          addEscalOutput("results.log already opened.");
-        }
-        scrollEscalToBottom();
-      } else {
-        addEscalOutput("Command not found.");
-        scrollEscalToBottom();
-      }
-
-      escalInput.value = "";
-    });
-
-    document.addEventListener("click", () => {
-      if (escalTerminal.classList.contains("show-terminal")) {
-        escalInput.focus();
-      } else {
+      setTimeout(() => {
         terminalInput.focus();
-      }
-    });
-  </script>
-<!--<div class="cursor-glow"></div>
-<script src="cursor.js"></script> -->
+      }, 180);
+    } else if (c === "cat project_summary.txt") {
+      appendTemplate("project-summary-template");
+    } else if (c === "cat methods.md") {
+      appendTemplate("methods-template");
+    } else if (c === "cat results.log") {
+      appendTemplate("results-template");
+    } else if (c === "cd escal") {
+      addEscalOut("Already in ESCAL.");
+    } else {
+      addEscalOut("Command not found");
+    }
+
+    scrollEscalToBottom();
+  }
+
+  /* ===== SUBMITS ===== */
+  terminalForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const cmd = terminalInput.value.trim();
+    if (!cmd) return;
+
+    history.push(cmd);
+    historyIndex = history.length;
+
+    addTop(cmd);
+    runTop(cmd);
+    terminalInput.value = "";
+  });
+
+  escalForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const cmd = escalInput.value.trim();
+    if (!cmd) return;
+
+    history.push(cmd);
+    historyIndex = history.length;
+
+    addEscal(cmd);
+    runEscal(cmd);
+    escalInput.value = "";
+  });
+
+  /* ===== KEY EVENTS ===== */
+  terminalInput.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      autocompleteTop();
+      return;
+    }
+    handleHistory(terminalInput, e);
+  });
+
+  escalInput.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      autocompleteEscal();
+      return;
+    }
+    handleHistory(escalInput, e);
+  });
+
+  /* ===== CLICK TO FOCUS ACTIVE TERMINAL ===== */
+  document.addEventListener("click", () => {
+    if (currentDirectory === "~/ESCAL" && escalTerminal.classList.contains("show-terminal")) {
+      escalInput.focus();
+    } else {
+      terminalInput.focus();
+    }
+  });
+</script>
+
 </body>
 </html>

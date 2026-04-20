@@ -370,30 +370,6 @@
   animation-fill-mode: forwards;
 }
 
-.side-card-1 {
-  animation-name: sideCardInLeft;
-  animation-delay: 0.95s;
-}
-
-.side-card-2 {
-  animation-name: sideCardInLeft;
-  animation-delay: 1.15s;
-}
-
-.side-card-3 {
-  animation-name: sideCardInRight;
-  animation-delay: 1.05s;
-}
-
-.side-card-4 {
-  animation-name: sideCardInRight;
-  animation-delay: 1.25s;
-}
-
-.side-card-5 {
-  animation-name: sideCardInRight;
-  animation-delay: 1.45s;
-}
 
 @keyframes sideCardInLeft {
   from {
@@ -414,6 +390,86 @@
     opacity: 1;
   }
 }
+
+/* ===== FLOATING / BOUNCING SIDE CARDS ===== */
+.side-card-1 {
+  animation:
+    sideCardInLeft 0.85s ease 0.95s forwards,
+    floatLeft1 4.2s ease-in-out 1.9s infinite;
+}
+
+.side-card-2 {
+  animation:
+    sideCardInLeft 0.85s ease 1.15s forwards,
+    floatLeft2 4.8s ease-in-out 2.1s infinite;
+}
+
+.side-card-3 {
+  animation:
+    sideCardInRight 0.85s ease 1.05s forwards,
+    floatRight1 4.4s ease-in-out 2s infinite;
+}
+
+.side-card-4 {
+  animation:
+    sideCardInRight 0.85s ease 1.25s forwards,
+    floatRight2 5s ease-in-out 2.2s infinite;
+}
+
+.side-card-5 {
+  animation:
+    sideCardInRight 0.85s ease 1.45s forwards,
+    floatRight3 4.6s ease-in-out 2.35s infinite;
+}
+
+@keyframes floatLeft1 {
+  0%, 100% {
+    transform: rotate(-10deg) translateX(10px) translateY(0);
+  }
+  50% {
+    transform: rotate(-10deg) translateX(10px) translateY(-12px);
+  }
+}
+
+@keyframes floatLeft2 {
+  0%, 100% {
+    transform: rotate(7deg) translateX(-4px) translateY(0);
+  }
+  50% {
+    transform: rotate(7deg) translateX(-4px) translateY(-10px);
+  }
+}
+
+@keyframes floatRight1 {
+  0%, 100% {
+    transform: rotate(9deg) translateX(-10px) translateY(0);
+  }
+  50% {
+    transform: rotate(9deg) translateX(-10px) translateY(-11px);
+  }
+}
+
+@keyframes floatRight2 {
+  0%, 100% {
+    transform: rotate(-6deg) translateX(6px) translateY(0);
+  }
+  50% {
+    transform: rotate(-6deg) translateX(6px) translateY(-13px);
+  }
+}
+
+@keyframes floatRight3 {
+  0%, 100% {
+    transform: rotate(11deg) translateX(-2px) translateY(0);
+  }
+  50% {
+    transform: rotate(11deg) translateX(-2px) translateY(-9px);
+  }
+}
+
+
+
+
 
 /* ===== BACKGROUND PARTICLES ===== */
 .bg-particles {
