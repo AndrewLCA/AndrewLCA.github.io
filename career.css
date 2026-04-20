@@ -3,9 +3,9 @@
   min-height: 100vh;
   color: #f4f7fb;
   background:
-    radial-gradient(circle at top left, rgba(68, 105, 255, 0.16), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(100, 255, 218, 0.11), transparent 25%),
-    linear-gradient(135deg, #050913 0%, #0b1120 42%, #05070d 100%);
+    radial-gradient(circle at top left, rgba(68, 105, 255, 0.20), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(100, 255, 218, 0.14), transparent 22%),
+    linear-gradient(135deg, #030711 0%, #08101d 38%, #060d17 65%, #03050b 100%);
   overflow-x: hidden;
 }
 
@@ -13,15 +13,337 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.14;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-  background-size: 38px 38px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.22));
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.22));
   z-index: 0;
+  opacity: 0.28;
+  background:
+    linear-gradient(rgba(120, 180, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 180, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(90, 235, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 235, 255, 0.035) 1px, transparent 1px);
+  background-size:
+    48px 48px,
+    48px 48px,
+    12px 12px,
+    12px 12px;
 }
+
+.career-circuit {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  background:
+    /* top row nodes */
+    radial-gradient(circle at 6% 12%, rgba(120, 220, 255, 0.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 16% 12%, rgba(120, 220, 255, 0.88) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 12%, rgba(120, 220, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 12%, rgba(120, 220, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 12%, rgba(120, 220, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 12%, rgba(120, 220, 255, 0.86) 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 12%, rgba(120, 220, 255, 0.92) 0 2px, transparent 3px),
+
+    /* upper middle nodes */
+    radial-gradient(circle at 12% 26%, rgba(120, 220, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 24% 26%, rgba(120, 220, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 38% 26%, rgba(120, 220, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 52% 26%, rgba(120, 220, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 66% 26%, rgba(120, 220, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 26%, rgba(120, 220, 255, 0.82) 0 2px, transparent 3px),
+
+    /* center nodes */
+    radial-gradient(circle at 8% 46%, rgba(90, 235, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 20% 46%, rgba(90, 235, 255, 0.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 34% 46%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 46%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 46%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 76% 46%, rgba(90, 235, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 46%, rgba(90, 235, 255, 0.80) 0 2px, transparent 3px),
+
+    /* lower middle nodes */
+    radial-gradient(circle at 14% 66%, rgba(90, 235, 255, 0.74) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 66%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 66%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 66%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 66%, rgba(90, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 66%, rgba(90, 235, 255, 0.76) 0 2px, transparent 3px),
+
+    /* bottom row nodes */
+    radial-gradient(circle at 8% 84%, rgba(120, 220, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 22% 84%, rgba(120, 220, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 38% 84%, rgba(120, 220, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 54% 84%, rgba(120, 220, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 84%, rgba(120, 220, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 84%, rgba(120, 220, 255, 0.84) 0 2px, transparent 3px),
+
+    /* horizontal traces */
+    linear-gradient(rgba(120, 220, 255, 0.24), rgba(120, 220, 255, 0.24)) 6% 12% / 10% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.22), rgba(120, 220, 255, 0.22)) 16% 12% / 12% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.22), rgba(120, 220, 255, 0.22)) 28% 12% / 14% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.22), rgba(120, 220, 255, 0.22)) 42% 12% / 16% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.22), rgba(120, 220, 255, 0.22)) 58% 12% / 16% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.22), rgba(120, 220, 255, 0.22)) 74% 12% / 14% 2px no-repeat,
+
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 12% 26% / 12% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 24% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 38% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 52% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 66% 26% / 16% 2px no-repeat,
+
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 8% 46% / 12% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 20% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 34% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 48% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 62% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 76% 46% / 14% 2px no-repeat,
+
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 14% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 28% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 42% 66% / 16% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 58% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 72% 66% / 14% 2px no-repeat,
+
+    linear-gradient(rgba(120, 220, 255, 0.16), rgba(120, 220, 255, 0.16)) 8% 84% / 14% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.16), rgba(120, 220, 255, 0.16)) 22% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.16), rgba(120, 220, 255, 0.16)) 38% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.16), rgba(120, 220, 255, 0.16)) 54% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.16), rgba(120, 220, 255, 0.16)) 70% 84% / 16% 2px no-repeat,
+
+    /* vertical traces */
+    linear-gradient(rgba(120, 220, 255, 0.20), rgba(120, 220, 255, 0.20)) 16% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 28% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 42% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 58% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.18), rgba(120, 220, 255, 0.18)) 74% 12% / 2px 14% no-repeat,
+
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 24% 26% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 38% 26% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 52% 26% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.18), rgba(90, 235, 255, 0.18)) 66% 26% / 2px 20% no-repeat,
+
+    linear-gradient(rgba(90, 235, 255, 0.16), rgba(90, 235, 255, 0.16)) 20% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.16), rgba(90, 235, 255, 0.16)) 34% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.16), rgba(90, 235, 255, 0.16)) 48% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.16), rgba(90, 235, 255, 0.16)) 62% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.16), rgba(90, 235, 255, 0.16)) 76% 46% / 2px 20% no-repeat,
+
+    linear-gradient(rgba(120, 220, 255, 0.14), rgba(120, 220, 255, 0.14)) 22% 66% / 2px 18% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.14), rgba(120, 220, 255, 0.14)) 38% 66% / 2px 18% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.14), rgba(120, 220, 255, 0.14)) 54% 66% / 2px 18% no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.14), rgba(120, 220, 255, 0.14)) 70% 66% / 2px 18% no-repeat;
+}
+
+.career-circuit-base {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+
+  background:
+    /* repeating circuit nodes */
+    radial-gradient(circle, rgba(120, 220, 255, 0.4) 1px, transparent 2px) 0 0 / 40px 40px,
+
+    /* horizontal micro traces */
+    linear-gradient(rgba(120, 220, 255, 0.08) 1px, transparent 1px) 0 0 / 40px 20px,
+
+    /* vertical micro traces */
+    linear-gradient(90deg, rgba(120, 220, 255, 0.08) 1px, transparent 1px) 0 0 / 20px 40px;
+}
+
+
+@keyframes circuitDrift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-80px, -80px);
+  }
+}
+
+.career-circuit-base {
+  animation: circuitDrift 25s linear infinite;
+}
+
+
+.career-circuit::before,
+.career-circuit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.career-circuit::before {
+  opacity: 0.72;
+  background:
+    radial-gradient(circle at 6% 12%, rgba(120, 220, 255, 0.32) 0 8px, transparent 10px),
+    radial-gradient(circle at 42% 12%, rgba(120, 220, 255, 0.24) 0 8px, transparent 10px),
+    radial-gradient(circle at 88% 12%, rgba(120, 220, 255, 0.30) 0 8px, transparent 10px),
+    radial-gradient(circle at 24% 26%, rgba(120, 220, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 66% 26%, rgba(120, 220, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 34% 46%, rgba(90, 235, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 76% 46%, rgba(90, 235, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 28% 66%, rgba(90, 235, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 72% 66%, rgba(90, 235, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 22% 84%, rgba(120, 220, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 84%, rgba(120, 220, 255, 0.20) 0 8px, transparent 10px);
+}
+
+.career-circuit::after {
+  opacity: 0.34;
+  background:
+    linear-gradient(rgba(120, 220, 255, 0.05), rgba(120, 220, 255, 0.05)) 6% 12% / 22% 4px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.05), rgba(120, 220, 255, 0.05)) 28% 12% / 30% 4px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.045), rgba(120, 220, 255, 0.045)) 12% 26% / 40% 4px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.045), rgba(90, 235, 255, 0.045)) 8% 46% / 68% 4px no-repeat,
+    linear-gradient(rgba(90, 235, 255, 0.045), rgba(90, 235, 255, 0.045)) 14% 66% / 58% 4px no-repeat,
+    linear-gradient(rgba(120, 220, 255, 0.04), rgba(120, 220, 255, 0.04)) 8% 84% / 62% 4px no-repeat;
+}
+
+.career-signal-flow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.75;
+}
+
+.signal-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8cf3ff;
+  box-shadow:
+    0 0 8px rgba(140, 243, 255, 0.95),
+    0 0 18px rgba(140, 243, 255, 0.65);
+  opacity: 0;
+}
+
+/* horizontal flows */
+.signal-1 {
+  top: 12%;
+  left: 6%;
+  animation: flowRight1 5.5s linear infinite;
+}
+
+.signal-2 {
+  top: 46%;
+  left: 8%;
+  animation: flowRight2 6.2s linear infinite 1.2s;
+}
+
+.signal-3 {
+  top: 66%;
+  left: 14%;
+  animation: flowRight3 5.8s linear infinite 2.1s;
+}
+
+.signal-4 {
+  top: 84%;
+  left: 8%;
+  animation: flowRight4 6.6s linear infinite 0.6s;
+}
+
+/* vertical flows */
+.signal-5 {
+  top: 12%;
+  left: 22%;
+  animation: flowDown1 4.8s linear infinite 1.5s;
+}
+
+.signal-6 {
+  top: 26%;
+  left: 66%;
+  animation: flowDown2 5.2s linear infinite 0.9s;
+}
+
+@keyframes flowRight1 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(420px, 0); opacity: 0; }
+}
+
+@keyframes flowRight2 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(700px, 0); opacity: 0; }
+}
+
+@keyframes flowRight3 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(580px, 0); opacity: 0; }
+}
+
+@keyframes flowRight4 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(620px, 0); opacity: 0; }
+}
+
+@keyframes flowDown1 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(0, 140px); opacity: 0; }
+}
+
+@keyframes flowDown2 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(0, 160px); opacity: 0; }
+}
+
+
+.career-circuit::before,
+.career-circuit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.career-circuit::before {
+  opacity: 0.72;
+  background:
+    radial-gradient(circle at 6% 12%, rgba(120, 220, 255, 0.32) 0 8px, transparent 10px),
+    radial-gradient(circle at 42% 12%, rgba(120, 220, 255, 0.24) 0 8px, transparent 10px),
+    radial-gradient(circle at 88% 12%, rgba(120, 220, 255, 0.30) 0 8px, transparent 10px),
+    radial-gradient(circle at 24% 26%, rgba(120, 220, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 66% 26%, rgba(120, 220, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 34% 46%, rgba(90, 235, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 76% 46%, rgba(90, 235, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 28% 66%, rgba(90, 235, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 72% 66%, rgba(90, 235, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 22% 84%, rgba(120, 220, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 84%, rgba(120, 220, 255, 0.20) 0 8px, transparent 10px);
+  animation: nodePulse 3.8s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.015);
+  }
+}
+
+
+
+
+
+
+
 
 .career-glow {
   position: fixed;
@@ -61,11 +383,53 @@
 
 .career-label {
   margin: 0;
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
-  color: #7dd3fc;
-  opacity: 0.95;
+  font-size: clamp(2.2rem, 5vw, 4rem); /* BIG */
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+
+  /* subtle tech glow */
+  text-shadow:
+    0 0 8px rgba(125, 211, 252, 0.25),
+    0 0 18px rgba(125, 211, 252, 0.12);
+
+  /* optional gradient text */
+  background: linear-gradient(90deg, #7dd3fc, #67e8f9, #a5f3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.career-label::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  margin-top: 12px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(125, 211, 252, 0.8),
+    rgba(125, 211, 252, 0.2)
+  );
+
+  box-shadow: 0 0 10px rgba(125, 211, 252, 0.4);
+}
+
+
+.career-hero h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.06;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.career-intro {
+  margin: 18px 0 0;
+  max-width: 720px;
+  color: #c8d4e6;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .career-container {
@@ -101,6 +465,7 @@
 .education-card,
 .career-node,
 .project-card {
+  position: relative;
   background: linear-gradient(180deg, rgba(11, 17, 30, 0.9), rgba(8, 13, 24, 0.88));
   border: 1px solid rgba(120, 152, 255, 0.2);
   box-shadow:
@@ -124,6 +489,18 @@
     0 22px 48px rgba(0, 0, 0, 0.34),
     0 0 28px rgba(125, 211, 252, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.blueprint-corner {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid rgba(125, 211, 252, 0.32);
+  border-right: 1px solid rgba(125, 211, 252, 0.32);
+  opacity: 0.8;
+  pointer-events: none;
 }
 
 /* education */
@@ -200,12 +577,29 @@
 
 /* experience */
 .career-graph {
+  position: relative;
   display: grid;
   gap: 22px;
+  padding-left: 34px;
+}
+
+.career-graph::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 10px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(125, 211, 252, 0.16),
+    rgba(103, 232, 249, 0.36),
+    rgba(125, 211, 252, 0.16)
+  );
+  box-shadow: 0 0 14px rgba(125, 211, 252, 0.14);
 }
 
 .career-node {
-  position: relative;
   padding: 28px 24px;
   border-radius: 24px;
 }
@@ -228,6 +622,34 @@
 .career-node.featured {
   background: linear-gradient(180deg, rgba(18, 28, 54, 0.96), rgba(10, 16, 29, 0.94));
   border-color: rgba(115, 223, 255, 0.32);
+}
+
+.node-connector {
+  position: absolute;
+  top: 34px;
+  left: -34px;
+  width: 34px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(125, 211, 252, 0.42),
+    rgba(125, 211, 252, 0.12)
+  );
+}
+
+.node-connector::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #67e8f9;
+  box-shadow:
+    0 0 0 4px rgba(103, 232, 249, 0.10),
+    0 0 16px rgba(103, 232, 249, 0.42);
 }
 
 .node-top {
@@ -352,6 +774,19 @@
   .education-card {
     border-radius: 18px;
     padding: 22px 18px;
+  }
+
+  .career-graph {
+    padding-left: 22px;
+  }
+
+  .career-graph::before {
+    left: 4px;
+  }
+
+  .node-connector {
+    left: -22px;
+    width: 22px;
   }
 
   .node-top,
