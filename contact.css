@@ -24,20 +24,304 @@
     );
 }
 
+/* ===== GRID ===== */
 .chat-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.22;
+  opacity: 0.10;
   background:
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 34px 34px;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(120, 190, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 190, 255, 0.025) 1px, transparent 1px);
+  background-size:
+    34px 34px,
+    34px 34px,
+    11px 11px,
+    11px 11px;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.28));
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.28));
 }
 
+/* ===== CIRCUIT BASE ===== */
+.contact-circuit-base {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.26;
+  background:
+    radial-gradient(circle, rgba(120, 200, 255, 0.34) 1px, transparent 2px) 0 0 / 40px 40px,
+    linear-gradient(rgba(120, 200, 255, 0.06) 1px, transparent 1px) 0 0 / 40px 20px,
+    linear-gradient(90deg, rgba(120, 200, 255, 0.06) 1px, transparent 1px) 0 0 / 20px 40px;
+  animation: circuitDrift 25s linear infinite;
+}
+
+@keyframes circuitDrift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-80px, -80px);
+  }
+}
+
+/* ===== MAIN CIRCUIT ===== */
+.contact-circuit {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.92;
+  background:
+    /* top row nodes */
+    radial-gradient(circle at 6% 12%, rgba(130, 210, 255, 0.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 16% 12%, rgba(130, 210, 255, 0.88) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 12%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 12%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 12%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 12%, rgba(130, 210, 255, 0.86) 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 12%, rgba(130, 210, 255, 0.92) 0 2px, transparent 3px),
+
+    /* upper middle nodes */
+    radial-gradient(circle at 12% 26%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 24% 26%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 38% 26%, rgba(130, 210, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 52% 26%, rgba(130, 210, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 66% 26%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 26%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
+
+    /* center nodes */
+    radial-gradient(circle at 8% 46%, rgba(100, 235, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 20% 46%, rgba(100, 235, 255, 0.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 34% 46%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 46%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 46%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 76% 46%, rgba(100, 235, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 46%, rgba(100, 235, 255, 0.80) 0 2px, transparent 3px),
+
+    /* lower middle nodes */
+    radial-gradient(circle at 14% 66%, rgba(100, 235, 255, 0.74) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 66%, rgba(100, 235, 255, 0.76) 0 2px, transparent 3px),
+
+    /* bottom row nodes */
+    radial-gradient(circle at 8% 84%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 22% 84%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 38% 84%, rgba(130, 210, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 54% 84%, rgba(130, 210, 255, 0.76) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 84%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 84%, rgba(130, 210, 255, 0.84) 0 2px, transparent 3px),
+
+    /* horizontal traces */
+    linear-gradient(rgba(130, 210, 255, 0.22), rgba(130, 210, 255, 0.22)) 6% 12% / 10% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 16% 12% / 12% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 28% 12% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 42% 12% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 58% 12% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 74% 12% / 14% 2px no-repeat,
+
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 12% 26% / 12% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 24% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 38% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 52% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 66% 26% / 16% 2px no-repeat,
+
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 8% 46% / 12% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 20% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 34% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 48% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 62% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 76% 46% / 14% 2px no-repeat,
+
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 14% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 28% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 42% 66% / 16% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 58% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 72% 66% / 14% 2px no-repeat,
+
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 8% 84% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 22% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 38% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 54% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 70% 84% / 16% 2px no-repeat,
+
+    /* vertical traces */
+    linear-gradient(rgba(130, 210, 255, 0.18), rgba(130, 210, 255, 0.18)) 16% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 28% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 42% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 58% 12% / 2px 14% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 74% 12% / 2px 14% no-repeat,
+
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 24% 26% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 38% 26% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 52% 26% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 66% 26% / 2px 20% no-repeat,
+
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 20% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 34% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 48% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 62% 46% / 2px 20% no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 76% 46% / 2px 20% no-repeat,
+
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 22% 66% / 2px 18% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 38% 66% / 2px 18% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 54% 66% / 2px 18% no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 70% 66% / 2px 18% no-repeat;
+}
+
+.contact-circuit::before,
+.contact-circuit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact-circuit::before {
+  opacity: 0.72;
+  background:
+    radial-gradient(circle at 6% 12%, rgba(130, 210, 255, 0.30) 0 8px, transparent 10px),
+    radial-gradient(circle at 42% 12%, rgba(130, 210, 255, 0.22) 0 8px, transparent 10px),
+    radial-gradient(circle at 88% 12%, rgba(130, 210, 255, 0.28) 0 8px, transparent 10px),
+    radial-gradient(circle at 24% 26%, rgba(130, 210, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 66% 26%, rgba(130, 210, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 34% 46%, rgba(100, 235, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 76% 46%, rgba(100, 235, 255, 0.20) 0 8px, transparent 10px),
+    radial-gradient(circle at 28% 66%, rgba(100, 235, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 72% 66%, rgba(100, 235, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 22% 84%, rgba(130, 210, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 84%, rgba(130, 210, 255, 0.18) 0 8px, transparent 10px);
+  animation: nodePulse 3.8s ease-in-out infinite;
+}
+
+.contact-circuit::after {
+  opacity: 0.28;
+  background:
+    linear-gradient(rgba(130, 210, 255, 0.04), rgba(130, 210, 255, 0.04)) 6% 12% / 22% 4px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.04), rgba(130, 210, 255, 0.04)) 28% 12% / 30% 4px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.04), rgba(130, 210, 255, 0.04)) 12% 26% / 40% 4px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.04), rgba(100, 235, 255, 0.04)) 8% 46% / 68% 4px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.04), rgba(100, 235, 255, 0.04)) 14% 66% / 58% 4px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.035), rgba(130, 210, 255, 0.035)) 8% 84% / 62% 4px no-repeat;
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.015);
+  }
+}
+
+/* ===== SIGNAL FLOW ===== */
+.contact-signal-flow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.78;
+}
+
+.signal-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9fe7ff;
+  box-shadow:
+    0 0 8px rgba(159, 231, 255, 0.95),
+    0 0 18px rgba(159, 231, 255, 0.62);
+  opacity: 0;
+}
+
+.signal-1 {
+  top: 12%;
+  left: 6%;
+  animation: flowRight1 5.5s linear infinite;
+}
+
+.signal-2 {
+  top: 46%;
+  left: 8%;
+  animation: flowRight2 6.2s linear infinite 1.2s;
+}
+
+.signal-3 {
+  top: 66%;
+  left: 14%;
+  animation: flowRight3 5.8s linear infinite 2.1s;
+}
+
+.signal-4 {
+  top: 84%;
+  left: 8%;
+  animation: flowRight4 6.6s linear infinite 0.6s;
+}
+
+.signal-5 {
+  top: 12%;
+  left: 22%;
+  animation: flowDown1 4.8s linear infinite 1.5s;
+}
+
+.signal-6 {
+  top: 26%;
+  left: 66%;
+  animation: flowDown2 5.2s linear infinite 0.9s;
+}
+
+@keyframes flowRight1 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(420px, 0); opacity: 0; }
+}
+
+@keyframes flowRight2 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(700px, 0); opacity: 0; }
+}
+
+@keyframes flowRight3 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(580px, 0); opacity: 0; }
+}
+
+@keyframes flowRight4 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(620px, 0); opacity: 0; }
+}
+
+@keyframes flowDown1 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(0, 140px); opacity: 0; }
+}
+
+@keyframes flowDown2 {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(0, 160px); opacity: 0; }
+}
+
+/* ===== GLOWS ===== */
 .chat-glow {
   position: fixed;
   border-radius: 50%;
@@ -62,6 +346,7 @@
   right: -60px;
 }
 
+/* ===== CONTENT ===== */
 .contact-container {
   position: relative;
   z-index: 2;

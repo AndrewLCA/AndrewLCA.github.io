@@ -20,12 +20,23 @@
   </nav>
 
   <div class="terminal-bg-grid"></div>
+  <div class="research-circuit-base"></div>
+  <div class="research-circuit"></div>
+
+  <div class="research-signal-flow">
+    <span class="signal-dot signal-1"></span>
+    <span class="signal-dot signal-2"></span>
+    <span class="signal-dot signal-3"></span>
+    <span class="signal-dot signal-4"></span>
+    <span class="signal-dot signal-5"></span>
+    <span class="signal-dot signal-6"></span>
+  </div>
+
   <div class="terminal-glow terminal-glow-1"></div>
   <div class="terminal-glow terminal-glow-2"></div>
 
   <main class="research-shell">
 
-    <!-- TOP TERMINAL -->
     <section class="terminal-window hero-terminal">
       <div class="terminal-bar">
         <span class="dot red"></span>
@@ -50,7 +61,6 @@
       </div>
     </section>
 
-    <!-- ESCAL TERMINAL -->
     <section class="terminal-window main-terminal hidden-terminal" id="escal-terminal">
       <div class="terminal-bar">
         <span class="dot red"></span>
@@ -72,7 +82,6 @@
       </div>
     </section>
 
-    <!-- TEMPLATES -->
     <template id="project-summary-template">
       <div class="research-block">
         <div class="terminal-card">
@@ -108,258 +117,251 @@
     <template id="results-template">
       <div class="research-block">
         <div class="stats-grid">
-          <div class="stat-card"><span class="stat-number">2.4×</span><span>MKL speedup</span></div>
-          <div class="stat-card"><span class="stat-number">2.5×</span><span>cuBLAS speedup</span></div>
+          <div class="stat-card"><span class="stat-number">2.4×</span><span class="stat-text">MKL speedup</span></div>
+          <div class="stat-card"><span class="stat-number">2.5×</span><span class="stat-text">cuBLAS speedup</span></div>
         </div>
       </div>
     </template>
 
   </main>
 
-<script>
-  const terminalInput = document.getElementById("terminal-input");
-  const terminalOutput = document.getElementById("terminal-output");
-  const escalInput = document.getElementById("escal-input");
-  const escalOutput = document.getElementById("escal-output");
-  const escalTerminal = document.getElementById("escal-terminal");
-  const terminalForm = document.getElementById("terminal-form");
-  const escalForm = document.getElementById("escal-form");
+  <script>
+    const terminalInput = document.getElementById("terminal-input");
+    const terminalOutput = document.getElementById("terminal-output");
+    const escalInput = document.getElementById("escal-input");
+    const escalOutput = document.getElementById("escal-output");
+    const escalTerminal = document.getElementById("escal-terminal");
+    const terminalForm = document.getElementById("terminal-form");
+    const escalForm = document.getElementById("escal-form");
 
-  let currentDirectory = "~";
+    let currentDirectory = "~";
 
-  /* ===== NAV HIDE ON SCROLL ===== */
-  let lastScrollY = window.scrollY;
-  const nav = document.querySelector(".subpage-nav");
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector(".subpage-nav");
 
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      nav.classList.add("hide");
-    } else {
-      nav.classList.remove("hide");
-    }
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("hide");
+      } else {
+        nav.classList.remove("hide");
+      }
 
-    lastScrollY = currentScrollY;
-  });
+      lastScrollY = currentScrollY;
+    });
 
-  /* ===== HISTORY ===== */
-  let history = [];
-  let historyIndex = -1;
+    let history = [];
+    let historyIndex = -1;
 
-  function handleHistory(input, e) {
-    if (e.key === "ArrowUp") {
-      e.preventDefault();
-      if (history.length > 0) {
-        historyIndex = Math.max(0, historyIndex - 1);
-        input.value = history[historyIndex] || "";
+    function handleHistory(input, e) {
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (history.length > 0) {
+          historyIndex = Math.max(0, historyIndex - 1);
+          input.value = history[historyIndex] || "";
+        }
+      }
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (history.length > 0) {
+          historyIndex = Math.min(history.length, historyIndex + 1);
+          input.value = history[historyIndex] || "";
+        }
       }
     }
 
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (history.length > 0) {
-        historyIndex = Math.min(history.length, historyIndex + 1);
-        input.value = history[historyIndex] || "";
-      }
+    function addTop(cmd) {
+      terminalOutput.innerHTML += `<p class="terminal-line"><span class="prompt">andrew@research:~$</span> ${cmd}</p>`;
     }
-  }
 
-  /* ===== OUTPUT HELPERS ===== */
-  function addTop(cmd) {
-    terminalOutput.innerHTML += `<p class="terminal-line"><span class="prompt">andrew@research:~$</span> ${cmd}</p>`;
-  }
-
-  function addTopOut(txt) {
-    terminalOutput.innerHTML += `<p class="terminal-output">${txt}</p>`;
-  }
-
-  function addEscal(cmd) {
-    escalOutput.innerHTML += `<p class="terminal-line"><span class="prompt">andrew@research:~/ESCAL$</span> ${cmd}</p>`;
-  }
-
-  function addEscalOut(txt) {
-    escalOutput.innerHTML += `<p class="terminal-output">${txt}</p>`;
-  }
-
-  function appendTemplate(id) {
-    escalOutput.appendChild(
-      document.getElementById(id).content.cloneNode(true)
-    );
-  }
-
-  function scrollTopToBottom() {
-    setTimeout(() => {
-      terminalForm.scrollIntoView({ behavior: "smooth", block: "end" });
-    }, 50);
-  }
-
-  function scrollEscalToBottom() {
-    setTimeout(() => {
-      escalForm.scrollIntoView({ behavior: "smooth", block: "end" });
-    }, 50);
-  }
-
-  /* ===== AUTOCOMPLETE ===== */
-  function autocompleteTop() {
-    const value = terminalInput.value.trim().toLowerCase();
-
-    if (value === "c" || value === "cd" || value === "cd ") {
-      terminalInput.value = "cd ESCAL";
-    } else if (value === "l" || value === "ls") {
-      terminalInput.value = "ls";
-    } else if (value === "p" || value === "pw" || value === "pwd") {
-      terminalInput.value = "pwd";
-    } else if (value === "h" || value === "he" || value === "hel" || value === "help") {
-      terminalInput.value = "help";
-    } else if (value === "cl" || value === "cle" || value === "clea" || value === "clear") {
-      terminalInput.value = "clear";
+    function addTopOut(txt) {
+      terminalOutput.innerHTML += `<p class="terminal-output">${txt}</p>`;
     }
-  }
 
-  function autocompleteEscal() {
-    const value = escalInput.value.trim().toLowerCase();
-
-    if (value === "l" || value === "ls") {
-      escalInput.value = "ls";
-    } else if (value === "p" || value === "pw" || value === "pwd") {
-      escalInput.value = "pwd";
-    } else if (value === "h" || value === "he" || value === "hel" || value === "help") {
-      escalInput.value = "help";
-    } else if (value === "cl" || value === "cle" || value === "clea" || value === "clear") {
-      escalInput.value = "clear";
-    } else if (value === "cd" || value === "cd " || value === "cd ." || value === "cd ..") {
-      escalInput.value = "cd ..";
-    } else if ("cat project_summary.txt".startsWith(value)) {
-      escalInput.value = "cat project_summary.txt";
-    } else if ("cat methods.md".startsWith(value)) {
-      escalInput.value = "cat methods.md";
-    } else if ("cat results.log".startsWith(value)) {
-      escalInput.value = "cat results.log";
+    function addEscal(cmd) {
+      escalOutput.innerHTML += `<p class="terminal-line"><span class="prompt">andrew@research:~/ESCAL$</span> ${cmd}</p>`;
     }
-  }
 
-  /* ===== COMMAND RUNNERS ===== */
-  function runTop(cmd) {
-    const c = cmd.trim().toLowerCase();
+    function addEscalOut(txt) {
+      escalOutput.innerHTML += `<p class="terminal-output">${txt}</p>`;
+    }
 
-    if (c === "help") {
-      addTopOut("ls, pwd, cd, clear, help");
-    } else if (c === "ls") {
-      addTopOut("ESCAL/");
-    } else if (c === "pwd") {
-      addTopOut("/home/andrew");
-    } else if (c === "clear") {
-      terminalOutput.innerHTML = "";
-    } else if (c === "cd escal") {
-      addTopOut("Entering ESCAL...");
-      currentDirectory = "~/ESCAL";
-      escalTerminal.classList.add("show-terminal");
+    function appendTemplate(id) {
+      escalOutput.appendChild(
+        document.getElementById(id).content.cloneNode(true)
+      );
+    }
 
+    function scrollTopToBottom() {
       setTimeout(() => {
-        escalTerminal.scrollIntoView({ behavior: "smooth", block: "start" });
+        terminalForm.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 50);
+    }
+
+    function scrollEscalToBottom() {
+      setTimeout(() => {
+        escalForm.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 50);
+    }
+
+    function autocompleteTop() {
+      const value = terminalInput.value.trim().toLowerCase();
+
+      if (value === "c" || value === "cd" || value === "cd ") {
+        terminalInput.value = "cd ESCAL";
+      } else if (value === "l" || value === "ls") {
+        terminalInput.value = "ls";
+      } else if (value === "p" || value === "pw" || value === "pwd") {
+        terminalInput.value = "pwd";
+      } else if (value === "h" || value === "he" || value === "hel" || value === "help") {
+        terminalInput.value = "help";
+      } else if (value === "cl" || value === "cle" || value === "clea" || value === "clear") {
+        terminalInput.value = "clear";
+      }
+    }
+
+    function autocompleteEscal() {
+      const value = escalInput.value.trim().toLowerCase();
+
+      if (value === "l" || value === "ls") {
+        escalInput.value = "ls";
+      } else if (value === "p" || value === "pw" || value === "pwd") {
+        escalInput.value = "pwd";
+      } else if (value === "h" || value === "he" || value === "hel" || value === "help") {
+        escalInput.value = "help";
+      } else if (value === "cl" || value === "cle" || value === "clea" || value === "clear") {
+        escalInput.value = "clear";
+      } else if (value === "cd" || value === "cd " || value === "cd ." || value === "cd ..") {
+        escalInput.value = "cd ..";
+      } else if ("cat project_summary.txt".startsWith(value)) {
+        escalInput.value = "cat project_summary.txt";
+      } else if ("cat methods.md".startsWith(value)) {
+        escalInput.value = "cat methods.md";
+      } else if ("cat results.log".startsWith(value)) {
+        escalInput.value = "cat results.log";
+      }
+    }
+
+    function runTop(cmd) {
+      const c = cmd.trim().toLowerCase();
+
+      if (c === "help") {
+        addTopOut("ls, pwd, cd, clear, help");
+      } else if (c === "ls") {
+        addTopOut("ESCAL/");
+      } else if (c === "pwd") {
+        addTopOut("/home/andrew");
+      } else if (c === "clear") {
+        terminalOutput.innerHTML = "";
+      } else if (c === "cd escal") {
+        addTopOut("Entering ESCAL...");
+        currentDirectory = "~/ESCAL";
+        escalTerminal.classList.add("show-terminal");
+
+        setTimeout(() => {
+          escalTerminal.scrollIntoView({ behavior: "smooth", block: "start" });
+          escalInput.focus();
+        }, 180);
+      } else if (c === "cd ..") {
+        addTopOut("Already at top-level directory.");
+      } else if (c.startsWith("cat ")) {
+        addTopOut("cat: no such file in this directory");
+      } else {
+        addTopOut("Command not found");
+      }
+
+      scrollTopToBottom();
+    }
+
+    function runEscal(cmd) {
+      const c = cmd.trim().toLowerCase();
+
+      if (c === "help") {
+        addEscalOut("ls, pwd, cat, clear, cd .., help");
+      } else if (c === "ls") {
+        addEscalOut("project_summary.txt methods.md results.log");
+      } else if (c === "pwd") {
+        addEscalOut("/home/andrew/ESCAL");
+      } else if (c === "clear") {
+        escalOutput.innerHTML = "";
+      } else if (c === "cd ..") {
+        addEscalOut("Leaving ESCAL...");
+        currentDirectory = "~";
+        escalTerminal.classList.remove("show-terminal");
+
+        setTimeout(() => {
+          terminalInput.focus();
+        }, 180);
+      } else if (c === "cat project_summary.txt") {
+        appendTemplate("project-summary-template");
+      } else if (c === "cat methods.md") {
+        appendTemplate("methods-template");
+      } else if (c === "cat results.log") {
+        appendTemplate("results-template");
+      } else if (c === "cd escal") {
+        addEscalOut("Already in ESCAL.");
+      } else {
+        addEscalOut("Command not found");
+      }
+
+      scrollEscalToBottom();
+    }
+
+    terminalForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const cmd = terminalInput.value.trim();
+      if (!cmd) return;
+
+      history.push(cmd);
+      historyIndex = history.length;
+
+      addTop(cmd);
+      runTop(cmd);
+      terminalInput.value = "";
+    });
+
+    escalForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const cmd = escalInput.value.trim();
+      if (!cmd) return;
+
+      history.push(cmd);
+      historyIndex = history.length;
+
+      addEscal(cmd);
+      runEscal(cmd);
+      escalInput.value = "";
+    });
+
+    terminalInput.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
+        e.preventDefault();
+        autocompleteTop();
+        return;
+      }
+      handleHistory(terminalInput, e);
+    });
+
+    escalInput.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
+        e.preventDefault();
+        autocompleteEscal();
+        return;
+      }
+      handleHistory(escalInput, e);
+    });
+
+    document.addEventListener("click", () => {
+      if (currentDirectory === "~/ESCAL" && escalTerminal.classList.contains("show-terminal")) {
         escalInput.focus();
-      }, 180);
-    } else if (c === "cd ..") {
-      addTopOut("Already at top-level directory.");
-    } else if (c.startsWith("cat ")) {
-      addTopOut("cat: no such file in this directory");
-    } else {
-      addTopOut("Command not found");
-    }
-
-    scrollTopToBottom();
-  }
-
-  function runEscal(cmd) {
-    const c = cmd.trim().toLowerCase();
-
-    if (c === "help") {
-      addEscalOut("ls, pwd, cat, clear, cd .., help");
-    } else if (c === "ls") {
-      addEscalOut("project_summary.txt methods.md results.log");
-    } else if (c === "pwd") {
-      addEscalOut("/home/andrew/ESCAL");
-    } else if (c === "clear") {
-      escalOutput.innerHTML = "";
-    } else if (c === "cd ..") {
-      addEscalOut("Leaving ESCAL...");
-      currentDirectory = "~";
-      escalTerminal.classList.remove("show-terminal");
-
-      setTimeout(() => {
+      } else {
         terminalInput.focus();
-      }, 180);
-    } else if (c === "cat project_summary.txt") {
-      appendTemplate("project-summary-template");
-    } else if (c === "cat methods.md") {
-      appendTemplate("methods-template");
-    } else if (c === "cat results.log") {
-      appendTemplate("results-template");
-    } else if (c === "cd escal") {
-      addEscalOut("Already in ESCAL.");
-    } else {
-      addEscalOut("Command not found");
-    }
+      }
+    });
+  </script>
 
-    scrollEscalToBottom();
-  }
-
-  /* ===== SUBMITS ===== */
-  terminalForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const cmd = terminalInput.value.trim();
-    if (!cmd) return;
-
-    history.push(cmd);
-    historyIndex = history.length;
-
-    addTop(cmd);
-    runTop(cmd);
-    terminalInput.value = "";
-  });
-
-  escalForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const cmd = escalInput.value.trim();
-    if (!cmd) return;
-
-    history.push(cmd);
-    historyIndex = history.length;
-
-    addEscal(cmd);
-    runEscal(cmd);
-    escalInput.value = "";
-  });
-
-  /* ===== KEY EVENTS ===== */
-  terminalInput.addEventListener("keydown", (e) => {
-    if (e.key === "Tab") {
-      e.preventDefault();
-      autocompleteTop();
-      return;
-    }
-    handleHistory(terminalInput, e);
-  });
-
-  escalInput.addEventListener("keydown", (e) => {
-    if (e.key === "Tab") {
-      e.preventDefault();
-      autocompleteEscal();
-      return;
-    }
-    handleHistory(escalInput, e);
-  });
-
-  /* ===== CLICK TO FOCUS ACTIVE TERMINAL ===== */
-  document.addEventListener("click", () => {
-    if (currentDirectory === "~/ESCAL" && escalTerminal.classList.contains("show-terminal")) {
-      escalInput.focus();
-    } else {
-      terminalInput.focus();
-    }
-  });
-</script>
-<script src="scrollReveal.js"></script>
+  <script src="scrollReveal.js"></script>
 </body>
 </html>
