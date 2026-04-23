@@ -25,7 +25,7 @@
 }
 
 /* ===== GRID ===== */
-.chat-bg {
+.contact-grid {
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -51,7 +51,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.26;
+  opacity: 0.24;
   background:
     radial-gradient(circle, rgba(120, 200, 255, 0.34) 1px, transparent 2px) 0 0 / 40px 40px,
     linear-gradient(rgba(120, 200, 255, 0.06) 1px, transparent 1px) 0 0 / 40px 20px,
@@ -74,9 +74,8 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.92;
+  opacity: 0.82;
   background:
-    /* top row nodes */
     radial-gradient(circle at 6% 12%, rgba(130, 210, 255, 0.95) 0 2px, transparent 3px),
     radial-gradient(circle at 16% 12%, rgba(130, 210, 255, 0.88) 0 2px, transparent 3px),
     radial-gradient(circle at 28% 12%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
@@ -85,7 +84,6 @@
     radial-gradient(circle at 74% 12%, rgba(130, 210, 255, 0.86) 0 2px, transparent 3px),
     radial-gradient(circle at 88% 12%, rgba(130, 210, 255, 0.92) 0 2px, transparent 3px),
 
-    /* upper middle nodes */
     radial-gradient(circle at 12% 26%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
     radial-gradient(circle at 24% 26%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
     radial-gradient(circle at 38% 26%, rgba(130, 210, 255, 0.76) 0 2px, transparent 3px),
@@ -93,7 +91,6 @@
     radial-gradient(circle at 66% 26%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
     radial-gradient(circle at 82% 26%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
 
-    /* center nodes */
     radial-gradient(circle at 8% 46%, rgba(100, 235, 255, 0.78) 0 2px, transparent 3px),
     radial-gradient(circle at 20% 46%, rgba(100, 235, 255, 0.75) 0 2px, transparent 3px),
     radial-gradient(circle at 34% 46%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
@@ -102,7 +99,6 @@
     radial-gradient(circle at 76% 46%, rgba(100, 235, 255, 0.76) 0 2px, transparent 3px),
     radial-gradient(circle at 90% 46%, rgba(100, 235, 255, 0.80) 0 2px, transparent 3px),
 
-    /* lower middle nodes */
     radial-gradient(circle at 14% 66%, rgba(100, 235, 255, 0.74) 0 2px, transparent 3px),
     radial-gradient(circle at 28% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
     radial-gradient(circle at 42% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
@@ -110,7 +106,6 @@
     radial-gradient(circle at 72% 66%, rgba(100, 235, 255, 0.72) 0 2px, transparent 3px),
     radial-gradient(circle at 86% 66%, rgba(100, 235, 255, 0.76) 0 2px, transparent 3px),
 
-    /* bottom row nodes */
     radial-gradient(circle at 8% 84%, rgba(130, 210, 255, 0.82) 0 2px, transparent 3px),
     radial-gradient(circle at 22% 84%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
     radial-gradient(circle at 38% 84%, rgba(130, 210, 255, 0.76) 0 2px, transparent 3px),
@@ -118,111 +113,72 @@
     radial-gradient(circle at 70% 84%, rgba(130, 210, 255, 0.78) 0 2px, transparent 3px),
     radial-gradient(circle at 86% 84%, rgba(130, 210, 255, 0.84) 0 2px, transparent 3px),
 
-    /* horizontal traces */
-    linear-gradient(rgba(130, 210, 255, 0.22), rgba(130, 210, 255, 0.22)) 6% 12% / 10% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 16% 12% / 12% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 28% 12% / 14% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 42% 12% / 16% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 58% 12% / 16% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.20), rgba(130, 210, 255, 0.20)) 74% 12% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.18), rgba(130, 210, 255, 0.18)) 6% 12% / 10% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.17), rgba(130, 210, 255, 0.17)) 16% 12% / 12% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.17), rgba(130, 210, 255, 0.17)) 28% 12% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.17), rgba(130, 210, 255, 0.17)) 42% 12% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.17), rgba(130, 210, 255, 0.17)) 58% 12% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.17), rgba(130, 210, 255, 0.17)) 74% 12% / 14% 2px no-repeat,
 
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 12% 26% / 12% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 24% 26% / 14% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 38% 26% / 14% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 52% 26% / 14% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 66% 26% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 12% 26% / 12% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 24% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 38% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 52% 26% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 66% 26% / 16% 2px no-repeat,
 
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 8% 46% / 12% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 20% 46% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 34% 46% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 48% 46% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 62% 46% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 76% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 8% 46% / 12% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 20% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 34% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 48% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 62% 46% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 76% 46% / 14% 2px no-repeat,
 
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 14% 66% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 28% 66% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 42% 66% / 16% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 58% 66% / 14% 2px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 72% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.13), rgba(100, 235, 255, 0.13)) 14% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.13), rgba(100, 235, 255, 0.13)) 28% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.13), rgba(100, 235, 255, 0.13)) 42% 66% / 16% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.13), rgba(100, 235, 255, 0.13)) 58% 66% / 14% 2px no-repeat,
+    linear-gradient(rgba(100, 235, 255, 0.13), rgba(100, 235, 255, 0.13)) 72% 66% / 14% 2px no-repeat,
 
-    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 8% 84% / 14% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 22% 84% / 16% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 38% 84% / 16% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 54% 84% / 16% 2px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.14), rgba(130, 210, 255, 0.14)) 70% 84% / 16% 2px no-repeat,
-
-    /* vertical traces */
-    linear-gradient(rgba(130, 210, 255, 0.18), rgba(130, 210, 255, 0.18)) 16% 12% / 2px 14% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 28% 12% / 2px 14% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 42% 12% / 2px 14% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 58% 12% / 2px 14% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.16), rgba(130, 210, 255, 0.16)) 74% 12% / 2px 14% no-repeat,
-
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 24% 26% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 38% 26% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 52% 26% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.16), rgba(100, 235, 255, 0.16)) 66% 26% / 2px 20% no-repeat,
-
-    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 20% 46% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 34% 46% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 48% 46% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 62% 46% / 2px 20% no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.14), rgba(100, 235, 255, 0.14)) 76% 46% / 2px 20% no-repeat,
-
-    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 22% 66% / 2px 18% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 38% 66% / 2px 18% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 54% 66% / 2px 18% no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 70% 66% / 2px 18% no-repeat;
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 8% 84% / 14% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 22% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 38% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 54% 84% / 16% 2px no-repeat,
+    linear-gradient(rgba(130, 210, 255, 0.12), rgba(130, 210, 255, 0.12)) 70% 84% / 16% 2px no-repeat;
 }
 
-.contact-circuit::before,
-.contact-circuit::after {
+.contact-circuit::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-
-.contact-circuit::before {
-  opacity: 0.72;
+  opacity: 0.62;
   background:
-    radial-gradient(circle at 6% 12%, rgba(130, 210, 255, 0.30) 0 8px, transparent 10px),
+    radial-gradient(circle at 6% 12%, rgba(130, 210, 255, 0.28) 0 8px, transparent 10px),
     radial-gradient(circle at 42% 12%, rgba(130, 210, 255, 0.22) 0 8px, transparent 10px),
     radial-gradient(circle at 88% 12%, rgba(130, 210, 255, 0.28) 0 8px, transparent 10px),
-    radial-gradient(circle at 24% 26%, rgba(130, 210, 255, 0.20) 0 8px, transparent 10px),
-    radial-gradient(circle at 66% 26%, rgba(130, 210, 255, 0.20) 0 8px, transparent 10px),
-    radial-gradient(circle at 34% 46%, rgba(100, 235, 255, 0.20) 0 8px, transparent 10px),
-    radial-gradient(circle at 76% 46%, rgba(100, 235, 255, 0.20) 0 8px, transparent 10px),
-    radial-gradient(circle at 28% 66%, rgba(100, 235, 255, 0.18) 0 8px, transparent 10px),
-    radial-gradient(circle at 72% 66%, rgba(100, 235, 255, 0.18) 0 8px, transparent 10px),
-    radial-gradient(circle at 22% 84%, rgba(130, 210, 255, 0.18) 0 8px, transparent 10px),
-    radial-gradient(circle at 70% 84%, rgba(130, 210, 255, 0.18) 0 8px, transparent 10px);
+    radial-gradient(circle at 24% 26%, rgba(130, 210, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 66% 26%, rgba(130, 210, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 34% 46%, rgba(100, 235, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 76% 46%, rgba(100, 235, 255, 0.18) 0 8px, transparent 10px),
+    radial-gradient(circle at 28% 66%, rgba(100, 235, 255, 0.17) 0 8px, transparent 10px),
+    radial-gradient(circle at 72% 66%, rgba(100, 235, 255, 0.17) 0 8px, transparent 10px),
+    radial-gradient(circle at 22% 84%, rgba(130, 210, 255, 0.17) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 84%, rgba(130, 210, 255, 0.17) 0 8px, transparent 10px);
   animation: nodePulse 3.8s ease-in-out infinite;
-}
-
-.contact-circuit::after {
-  opacity: 0.28;
-  background:
-    linear-gradient(rgba(130, 210, 255, 0.04), rgba(130, 210, 255, 0.04)) 6% 12% / 22% 4px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.04), rgba(130, 210, 255, 0.04)) 28% 12% / 30% 4px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.04), rgba(130, 210, 255, 0.04)) 12% 26% / 40% 4px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.04), rgba(100, 235, 255, 0.04)) 8% 46% / 68% 4px no-repeat,
-    linear-gradient(rgba(100, 235, 255, 0.04), rgba(100, 235, 255, 0.04)) 14% 66% / 58% 4px no-repeat,
-    linear-gradient(rgba(130, 210, 255, 0.035), rgba(130, 210, 255, 0.035)) 8% 84% / 62% 4px no-repeat;
 }
 
 @keyframes nodePulse {
   0%, 100% {
-    opacity: 0.42;
+    opacity: 0.4;
     transform: scale(1);
   }
   50% {
-    opacity: 0.92;
+    opacity: 0.9;
     transform: scale(1.015);
   }
 }
 
-/* ===== SIGNAL FLOW ===== */
+/* ===== SIGNAL DOTS ===== */
 .contact-signal-flow {
   position: fixed;
   inset: 0;
@@ -322,7 +278,7 @@
 }
 
 /* ===== GLOWS ===== */
-.chat-glow {
+.contact-glow {
   position: fixed;
   border-radius: 50%;
   filter: blur(100px);
@@ -330,7 +286,7 @@
   z-index: 0;
 }
 
-.chat-glow-1 {
+.glow-1 {
   width: 280px;
   height: 280px;
   background: rgba(98, 140, 255, 0.15);
@@ -338,7 +294,7 @@
   left: -70px;
 }
 
-.chat-glow-2 {
+.glow-2 {
   width: 250px;
   height: 250px;
   background: rgba(80, 220, 255, 0.12);
@@ -346,24 +302,23 @@
   right: -60px;
 }
 
-/* ===== CONTENT ===== */
-.contact-container {
+/* ===== LAYOUT ===== */
+.contact-shell {
   position: relative;
   z-index: 2;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 20px 60px;
+  padding: 120px 20px 70px;
   box-sizing: border-box;
 }
 
-.chat-window {
-  width: min(94vw, 860px);
-  min-height: 640px;
-  border-radius: 28px;
-  overflow: hidden;
-  background: rgba(11, 16, 27, 0.78);
+.contact-panel {
+  width: min(94vw, 980px);
+  border-radius: 30px;
+  padding: 34px;
+  background: rgba(11, 16, 27, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -371,56 +326,66 @@
     0 22px 60px rgba(0, 0, 0, 0.42),
     0 0 30px rgba(104, 117, 255, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  display: flex;
-  flex-direction: column;
 }
 
-.chat-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+.contact-header {
+  margin-bottom: 28px;
 }
 
-.chat-topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.contact-kicker {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8ab4ff;
 }
 
-.chat-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #f7fbff;
-  background: linear-gradient(135deg, #7c9cff, #61d8ff);
-  box-shadow: 0 0 18px rgba(97, 216, 255, 0.18);
-}
-
-.chat-topbar-meta p {
+.contact-header h1 {
   margin: 0;
-}
-
-.chat-name {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.05;
   color: #ffffff;
 }
 
-.chat-status {
-  margin-top: 3px;
-  font-size: 0.84rem;
-  color: #b8c7db;
+.contact-intro {
+  max-width: 620px;
+  margin: 14px 0 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #bfd0e5;
+}
+
+.contact-status-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.status-card {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(138, 180, 255, 0.10);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.status-label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #87a7d9;
+}
+
+.status-value {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f8fbff;
 }
 
 .status-dot {
@@ -431,48 +396,26 @@
   box-shadow: 0 0 10px rgba(86, 243, 154, 0.65);
 }
 
-.chat-chip {
-  display: inline-block;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #bfefff;
-  background: rgba(80, 220, 255, 0.08);
-  border: 1px solid rgba(80, 220, 255, 0.16);
+/* ===== CARDS ===== */
+.contact-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.chat-body {
-  flex: 1;
-  padding: 22px 20px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.02), transparent 40%);
-}
-
-.message-row {
-  display: flex;
-}
-
-.message-row.incoming {
-  justify-content: flex-start;
-}
-
-.message-row.outgoing {
-  justify-content: flex-end;
-}
-
-.message-bubble {
-  max-width: min(82%, 520px);
-  padding: 14px 16px 13px;
-  border-radius: 18px;
-  text-decoration: none;
-  color: inherit;
+.contact-card {
   position: relative;
   overflow: hidden;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px 22px 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(138, 180, 255, 0.12);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.14),
+    inset 0 0 0 1px rgba(255,255,255,0.02);
   transition:
     transform 0.22s ease,
     border-color 0.22s ease,
@@ -480,7 +423,7 @@
     background 0.22s ease;
 }
 
-.message-bubble::before {
+.contact-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -488,33 +431,15 @@
   background:
     linear-gradient(
       135deg,
-      rgba(255,255,255,0.03),
-      transparent 35%,
+      rgba(255,255,255,0.04),
+      transparent 34%,
       transparent 70%,
-      rgba(97, 216, 255, 0.03)
+      rgba(97, 216, 255, 0.04)
     );
 }
 
-.system-bubble {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.user-bubble {
-  background: linear-gradient(135deg, rgba(85, 112, 255, 0.28), rgba(97, 216, 255, 0.18));
-  border: 1px solid rgba(120, 170, 255, 0.22);
-}
-
-.contact-bubble {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(138, 180, 255, 0.12);
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.14),
-    inset 0 0 0 1px rgba(255,255,255,0.02);
-}
-
-.contact-bubble:hover {
-  transform: translateY(-3px);
+.contact-card:hover {
+  transform: translateY(-4px);
   border-color: rgba(138, 180, 255, 0.28);
   background: rgba(255, 255, 255, 0.08);
   box-shadow:
@@ -522,25 +447,27 @@
     0 0 18px rgba(138, 180, 255, 0.08);
 }
 
-.static-bubble:hover {
+.static-card:hover {
   transform: none;
 }
 
-.message-label {
+.card-tag {
   display: inline-block;
-  margin-bottom: 8px;
-  font-size: 0.76rem;
+  margin-bottom: 12px;
+  font-size: 0.74rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: #8ab4ff;
 }
 
-.message-bubble p {
-  margin: 0;
-  line-height: 1.65;
+.contact-card h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  color: #ffffff;
 }
 
 .contact-value {
+  margin: 0;
   font-size: 1rem;
   font-weight: 500;
   color: #f8fbff;
@@ -550,45 +477,14 @@
   word-break: break-word;
 }
 
-.message-subtext {
-  display: block;
-  margin-top: 8px;
-  font-size: 0.8rem;
+.card-note {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
   color: #b8c7db;
 }
 
-.chat-inputbar {
-  padding: 16px 20px 20px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
-}
-
-.fake-input {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.fake-placeholder {
-  color: #aab9cc;
-  font-size: 0.95rem;
-}
-
-.send-button {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #7c9cff, #61d8ff);
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 600;
-  box-shadow: 0 0 16px rgba(97, 216, 255, 0.14);
-}
-
+/* ===== REVEAL ===== */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -596,12 +492,11 @@
 }
 
 .reveal-1 { animation-delay: 0.08s; }
-.reveal-2 { animation-delay: 0.22s; }
+.reveal-2 { animation-delay: 0.2s; }
 .reveal-3 { animation-delay: 0.34s; }
-.reveal-4 { animation-delay: 0.5s; }
-.reveal-5 { animation-delay: 0.66s; }
-.reveal-6 { animation-delay: 0.82s; }
-.reveal-7 { animation-delay: 1s; }
+.reveal-4 { animation-delay: 0.48s; }
+.reveal-5 { animation-delay: 0.62s; }
+.reveal-6 { animation-delay: 0.76s; }
 
 @keyframes contactFadeUp {
   to {
@@ -610,37 +505,25 @@
   }
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 760px) {
-  .contact-container {
+  .contact-shell {
     padding: 108px 16px 40px;
     align-items: flex-start;
   }
 
-  .chat-window {
+  .contact-panel {
     width: 100%;
-    min-height: auto;
+    padding: 24px 18px;
     border-radius: 22px;
   }
 
-  .chat-topbar {
-    padding: 16px;
-    align-items: flex-start;
-    flex-direction: column;
+  .contact-status-row,
+  .contact-card-grid {
+    grid-template-columns: 1fr;
   }
 
-  .chat-body {
-    padding: 18px 16px 14px;
-  }
-
-  .message-bubble {
-    max-width: 92%;
-  }
-
-  .chat-inputbar {
-    padding: 14px 16px 16px;
-  }
-
-  .fake-input {
-    padding: 12px 14px;
+  .contact-header h1 {
+    font-size: 2.1rem;
   }
 }
