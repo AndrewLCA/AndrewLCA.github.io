@@ -477,6 +477,17 @@
   word-break: break-word;
 }
 
+.contact-discord {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f8fbff;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  word-break: break-word;
+}
+
+
 .card-note {
   margin: 12px 0 0;
   font-size: 0.9rem;
